@@ -1,0 +1,45 @@
+---
+layout: clubs
+---
+
+<script>
+    $lang_preferences = window.navigator.languages || [window.navigator.language || window.navigator.userLanguage]  //get user preferred language list, possibly with fallback to ui language
+    var $lang_preference;
+    for (var i = 0, len = $lang_preferences.length; i < len; i++) {
+        $lang_preference = $lang_preferences[i].substr(0, 2);
+        if ($lang_preference == "de") {
+            window.location.replace("/de");
+            break;
+        } else if ($lang_preference == "fr") {
+            window.location.replace("/fr");
+            break;
+        } else if ($lang_preference == "es") {
+            window.location.replace("/es");
+            break;
+        } else {
+            window.location.replace("/en");
+            break;
+        }
+    }
+</script>
+
+<div class="row">
+    <h1 class="display-4">Language selection</h1>
+    <p class="lead">
+        All information on our website is available in four languages. Please choose your language.
+    </p>
+    <div class="row">
+        <div class="col-sm-3">
+            <a href="/en" class="btn btn-primary btn-lg">English</a>
+        </div>
+        <div class="col-sm-3">
+            <a href="/de" class="btn btn-primary btn-lg">Deutsch</a>
+        </div>
+        <div class="col-sm-3">
+            <a href="/fr" class="btn btn-primary btn-lg">Français</a>
+        </div>
+        <div class="col-sm-3">
+            <a href="/es" class="btn btn-primary btn-lg">Español</a>
+        </div>
+</div>
+    </div>

@@ -1,0 +1,3 @@
+#for now forbid all crawling
+User-agent: *
+Disallow: /

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+</head>
+<body style="padding-top: 70px"> <!-- padding to avoid navbar overlaying content -->
+<div class="container">
+    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+        <a class="navbar-brand" href="#"><abbr title="Cross Lingual Bibliographic Search" style="border-bottom: none">CLUBS</abbr></a><!-- TODO: style can be removed after fixing https://github.com/twbs/bootstrap/issues/20908 -->
+        <ul class="nav navbar-nav">
+            <li class="nav-item{% if page.content_id == 'project' %} active{% endif %}">
+                <a class="nav-link" href="{{page.url[0:3]}}">
+                    {% if page.url starts with '/en' %}
+                        Project
+                    {% elseif page.url starts with '/de' %}
+                        Projekt
+                    {% elseif page.url starts with '/fr' %}
+                        Projet
+                    {% elseif page.url starts with '/es' %}
+                        Proyecto
+                    {% endif %}
+                </a>
+            </li>
+            <!--
+            <li class="nav-item{% if page.content_id == 'publications' %} active{% endif %}">
+                {% if page.url starts with '/en' %}
+                    <a class="nav-link" href="/en/publications/">Publications</a>
+                {% elseif page.url starts with '/de' %}
+                    <a class="nav-link" href="/de/veroeffentlichungen/">Veröffentlichungen</a>
+                {% elseif page.url starts with '/fr' %}
+                    <a class="nav-link" href="/fr/publications/">Publications</a>
+                {% elseif page.url starts with '/es' %}
+                    <a class="nav-link" href="/es/publicaciones/">Publicaciones</a>
+                {% endif %}
+            </li>
+            -->
+        </ul>
+
+        <ul class="nav navbar-nav float-xs-right">
+            <li class="nav-item {% if page.url starts with '/en' %}active{%endif%}">
+                <a class="nav-link " href="/en/{{ site[page.content_id].en }}">EN</a>
+            </li>
+            <li class="nav-item {% if page.url starts with '/de' %}active{%endif%}">
+                <a class="nav-link " href="/de/{{ site[page.content_id].de }}">DE</a>
+            </li>
+            <li class="nav-item {% if page.url starts with '/fr' %}active{%endif%}">
+                <a class="nav-link" href="/fr/{{ site[page.content_id].fr }}">FR</a>
+            </li>
+            <li class="nav-item {% if page.url starts with '/es' %}active{%endif%}">
+                <a class="nav-link" href="/es/{{ site[page.content_id].es }}">ES</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div class="container">
+    {% block content %}
+        {{ page.content }}
+    {% endblock %}
+</div>
+
+<hr>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="footer-col col-md-3">
+                <h3>
+                    {% if page.url starts with '/en' %}
+                        Partners
+                    {% elseif page.url starts with '/de' %}
+                        Partner
+                    {% elseif page.url starts with '/fr' %}
+                        TODO
+                    {% elseif page.url starts with '/es' %}
+                        TODO
+                    {% endif %}
+                </h3>
+                {% if page.url starts with '/de' %}
+                    <a href="https://www.zpid.de">
+                        <img class="img-fluid" src="/assets/images/logos/zpid_de.svg">
+                    </a>
+                {% else %}
+                    <a href="https://www.zpid.de">
+                        <img class="img-fluid" src="/assets/images/logos/zpid_en.svg">
+                    </a>
+                {% endif %}
+
+                <a href="https://www.ibi.hu-berlin.de/">
+                    <img class="img-fluid" src="/assets/images/logos/hu.svg">
+                </a>
+                <a href="http://fr46.uni-saarland.de/index.php?id=3765">
+                    <img class="img-fluid" src="/assets/images/logos/uds.svg">
+                </a>
+            </div>
+            <div class="footer-col col-md-3 offset-md-1">
+                <h3>
+                    {% if page.url starts with '/en' %}
+                        Funding
+                    {% elseif page.url starts with '/de' %}
+                        Förderung
+                    {% elseif page.url starts with '/fr' %}
+                        TODO
+                    {% elseif page.url starts with '/es' %}
+                        TODO
+                    {% endif %}
+                </h3>
+                <a href="http://www.leibniz-gemeinschaft.de">
+                    {% if page.url starts with '/de' %}
+                        <img class="img-fluid" src="/assets/images/logos/leibniz_de.svg">
+                    {% else %}
+                        <img class="img-fluid" src="/assets/images/logos/leibniz_en.svg">
+                    {% endif %}
+                </a>
+                <h3>
+                    {% if page.url starts with '/en' %}
+                        Contact
+                    {% elseif page.url starts with '/de' %}
+                        Kontakt
+                    {% elseif page.url starts with '/fr' %}
+                        TODO
+                    {% elseif page.url starts with '/es' %}
+                        TODO
+                    {% endif %}
+                </h3>
+                <p>
+                    <a href="mailto:ramthun@zpid.de">Roland Ramthun &lt;ramthun@zpid.de&gt;</a>
+                </p>
+            </div>
+            <div class="footer-col col-md-3 offset-md-1">
+                <h3>
+                    {% if page.url starts with '/en' %}
+                        Imprint
+                    {% elseif page.url starts with '/de' %}
+                        Impressum
+                    {% elseif page.url starts with '/fr' %}
+                        TODO
+                    {% elseif page.url starts with '/es' %}
+                        TODO
+                    {% endif %}
+                </h3>
+                <p>
+                    {% if page.url starts with '/en' %}
+                        This website is operated by the <a href="https://www.zpid.de">Leibniz-Institut für Psychologische Information und Dokumentation (ZPID)</a>. The <a href="https://www.zpid.de/index.php?wahl=zpid&uwahl=impress">imprint of the ZPID</a> applies.
+                    {% elseif page.url starts with '/de' %}
+                        Diese Webseite wird vom <a href="https://www.zpid.de">Leibniz-Institut für Psychologische Information und Dokumentation (ZPID)</a> betrieben. Es gilt das <a href="https://www.zpid.de/index.php?wahl=zpid&uwahl=impress">Impressum des ZPID</a>.
+                    {% elseif page.url starts with '/fr' %}
+                        TODO
+                    {% elseif page.url starts with '/es' %}
+                        TODO
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+</body>
+</html>

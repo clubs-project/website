@@ -1,0 +1,8 @@
+# Site configuration
+
+# /posts.html.twig gets written to /posts/index.html
+no_html_extension: true
+
+#mapping of content IDs to language specific file names
+project: {en: "", de: "", fr: "", es: ""} #index file of each language directory
+publications: {en: "publications", de: "veroeffentlichungen"}
