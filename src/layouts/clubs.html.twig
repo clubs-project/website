@@ -11,22 +11,20 @@
 </head>
 <body style="padding-top: 70px"> <!-- padding to avoid navbar overlaying content -->
 <div class="container">
-    <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-        <a class="navbar-brand" href="#"><abbr title="Cross Lingual Bibliographic Search" style="border-bottom: none">CLUBS</abbr></a><!-- TODO: style can be removed after fixing https://github.com/twbs/bootstrap/issues/20908 -->
-        <ul class="nav navbar-nav">
-            <li class="nav-item{% if page.content_id == 'project' %} active{% endif %}">
-                <a class="nav-link" href="{{page.url[0:3]}}">
-                    {% if page.url starts with '/en' %}
-                        Project
-                    {% elseif page.url starts with '/de' %}
-                        Projekt
-                    {% elseif page.url starts with '/fr' %}
-                        Projet
-                    {% elseif page.url starts with '/es' %}
-                        Proyecto
-                    {% endif %}
-                </a>
-            </li>
+    <nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
+        <a class="navbar-brand" href="#"><abbr title="Cross Lingual Bibliographic Search">CLUBS</abbr></a>
+        <div class="navbar-nav">
+            <a class="nav-item nav-link{% if page.content_id == 'project' %} active{% endif %}" href="{{page.url[0:3]}}">
+                {% if page.url starts with '/en' %}
+                    Project
+                {% elseif page.url starts with '/de' %}
+                    Projekt
+                {% elseif page.url starts with '/fr' %}
+                    Projet
+                {% elseif page.url starts with '/es' %}
+                    Proyecto
+                {% endif %}
+            </a>
             <!--
             <li class="nav-item{% if page.content_id == 'publications' %} active{% endif %}">
                 {% if page.url starts with '/en' %}
@@ -40,22 +38,13 @@
                 {% endif %}
             </li>
             -->
-        </ul>
-
-        <ul class="nav navbar-nav float-xs-right">
-            <li class="nav-item {% if page.url starts with '/en' %}active{%endif%}">
-                <a class="nav-link " href="/en/{{ site[page.content_id].en }}">EN</a>
-            </li>
-            <li class="nav-item {% if page.url starts with '/de' %}active{%endif%}">
-                <a class="nav-link " href="/de/{{ site[page.content_id].de }}">DE</a>
-            </li>
-            <li class="nav-item {% if page.url starts with '/fr' %}active{%endif%}">
-                <a class="nav-link" href="/fr/{{ site[page.content_id].fr }}">FR</a>
-            </li>
-            <li class="nav-item {% if page.url starts with '/es' %}active{%endif%}">
-                <a class="nav-link" href="/es/{{ site[page.content_id].es }}">ES</a>
-            </li>
-        </ul>
+        </div>
+        <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link{% if page.url starts with '/en' %} active{%endif%}" href="/en/{{ site[page.content_id].en }}">EN</a>
+                <a class="nav-item nav-link{% if page.url starts with '/de' %} active{%endif%}" href="/de/{{ site[page.content_id].de }}">DE</a>
+                <a class="nav-item nav-link{% if page.url starts with '/fr' %} active{%endif%}" href="/fr/{{ site[page.content_id].fr }}">FR</a>
+                <a class="nav-item nav-link{% if page.url starts with '/es' %} active{%endif%}" href="/es/{{ site[page.content_id].es }}">ES</a>
+        </div>
     </nav>
 </div>
 
