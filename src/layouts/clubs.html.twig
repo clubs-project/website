@@ -25,6 +25,27 @@
                     Proyecto
                 {% endif %}
             </a>
+            <a class="nav-item nav-link{% if page.content_id == 'approaches' %} active{% endif %}"
+                    {% if page.url starts with '/en' %}
+                        href="{{page.url[0:3]}}/approaches/"
+                    {% elseif page.url starts with '/de' %}
+                        href="{{page.url[0:3]}}/ansaetze/"
+                    {% elseif page.url starts with '/fr' %}
+                        href="{{page.url[0:3]}}/approches/"
+                    {% elseif page.url starts with '/es' %}
+                        href="{{page.url[0:3]}}/TODO/"
+                    {% endif %}
+            >
+                {% if page.url starts with '/en' %}
+                    Approaches
+                {% elseif page.url starts with '/de' %}
+                    Ansätze
+                {% elseif page.url starts with '/fr' %}
+                    Approches
+                {% elseif page.url starts with '/es' %}
+                    TODO
+                {% endif %}
+            </a>
             <a class="nav-item nav-link{% if page.content_id == 'team' %} active{% endif %}"
                     {% if page.url starts with '/en' %}
                         href="{{page.url[0:3]}}/team/"
