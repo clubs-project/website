@@ -12,7 +12,7 @@
 <body style="padding-top: 70px"> <!-- padding to avoid navbar overlaying content -->
 <div class="container">
     <nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
-        <a class="navbar-brand" href="#"><abbr title="Cross Lingual Bibliographic Search">CLUBS</abbr></a>
+        <a class="navbar-brand" href="{{page.url[0:3]}}"><abbr title="Cross Lingual Bibliographic Search">CLUBS</abbr></a>
         <div class="navbar-nav">
             <a class="nav-item nav-link{% if page.content_id == 'project' %} active{% endif %}" href="{{page.url[0:3]}}">
                 {% if page.url starts with '/en' %}
