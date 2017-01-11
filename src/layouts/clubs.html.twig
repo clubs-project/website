@@ -25,6 +25,27 @@
                     Proyecto
                 {% endif %}
             </a>
+            <a class="nav-item nav-link{% if page.content_id == 'team' %} active{% endif %}"
+                    {% if page.url starts with '/en' %}
+                        href="{{page.url[0:3]}}/team/"
+                    {% elseif page.url starts with '/de' %}
+                        href="{{page.url[0:3]}}/team/"
+                    {% elseif page.url starts with '/fr' %}
+                        href="{{page.url[0:3]}}/equipe/"
+                    {% elseif page.url starts with '/es' %}
+                        href="{{page.url[0:3]}}/equipo/"
+                    {% endif %}
+            >
+                {% if page.url starts with '/en' %}
+                    Team
+                {% elseif page.url starts with '/de' %}
+                    Team
+                {% elseif page.url starts with '/fr' %}
+                    Équipe
+                {% elseif page.url starts with '/es' %}
+                    Equipo
+                {% endif %}
+            </a>
             <!--
             <li class="nav-item{% if page.content_id == 'publications' %} active{% endif %}">
                 {% if page.url starts with '/en' %}
@@ -118,7 +139,7 @@
                     {% endif %}
                 </h3>
                 <p>
-                    <a href="mailto:ramthun@zpid.de">Roland Ramthun &lt;ramthun@zpid.de&gt;</a>
+                    <small><a href="mailto:ramthun@zpid.de">Roland Ramthun &lt;ramthun@zpid.de&gt;</a></small>
                 </p>
             </div>
             <div class="footer-col col-md-3 offset-md-1">
@@ -135,13 +156,13 @@
                 </h3>
                 <p>
                     {% if page.url starts with '/en' %}
-                        This website is operated by the <a href="https://www.zpid.de/index.php?lang=EN">Leibniz Institute for Psychology Information (ZPID)</a>. The <a href="https://www.zpid.de/index.php?wahl=zpid&uwahl=impress&lang=EN">imprint of the ZPID</a> applies.
+                        <small>This website is operated by the <a href="https://www.zpid.de/index.php?lang=EN">Leibniz Institute for Psychology Information (ZPID)</a>. The <a href="https://www.zpid.de/index.php?wahl=zpid&uwahl=impress&lang=EN">imprint of the ZPID</a> applies.</small>
                     {% elseif page.url starts with '/de' %}
-                        Diese Webseite wird vom <a href="https://www.zpid.de">Leibniz-Institut für Psychologische Information und Dokumentation (ZPID)</a> betrieben. Es gilt das <a href="https://www.zpid.de/index.php?wahl=zpid&uwahl=impress">Impressum des ZPID</a>.
+                        <small>Diese Webseite wird vom <a href="https://www.zpid.de">Leibniz-Institut für Psychologische Information und Dokumentation (ZPID)</a> betrieben. Es gilt das <a href="https://www.zpid.de/index.php?wahl=zpid&uwahl=impress">Impressum des ZPID</a>.</small>
                     {% elseif page.url starts with '/fr' %}
-                        TODO
+                        <small>TODO</small>
                     {% elseif page.url starts with '/es' %}
-                        El sitio web está gestionado por el <a href="https://www.zpid.de/index.php?lang=EN">Instituto Leibniz para la Información en Psicología (ZPID)</a>. Es válido el <a href="https://www.zpid.de/index.php?wahl=zpid&uwahl=impress&lang=EN">aviso legal del ZPID</a>.
+                        <small>El sitio web está gestionado por el <a href="https://www.zpid.de/index.php?lang=EN">Instituto Leibniz para la Información en Psicología (ZPID)</a>. Es válido el <a href="https://www.zpid.de/index.php?wahl=zpid&uwahl=impress&lang=EN">aviso legal del ZPID</a>.</small>
                     {% endif %}
                 </p>
             </div>
