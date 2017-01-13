@@ -46,6 +46,27 @@
                     TODO
                 {% endif %}
             </a>
+            <a class="nav-item nav-link{% if page.content_id == 'publications' %} active{% endif %}"
+                    {% if page.url starts with '/en' %}
+                        href="{{page.url[0:3]}}/publications/"
+                    {% elseif page.url starts with '/de' %}
+                        href="{{page.url[0:3]}}/veroeffentlichungen/"
+                    {% elseif page.url starts with '/fr' %}
+                        href="{{page.url[0:3]}}/publications/"
+                    {% elseif page.url starts with '/es' %}
+                        href="{{page.url[0:3]}}/publicaciones/"
+                    {% endif %}
+            >
+                {% if page.url starts with '/en' %}
+                    Publications
+                {% elseif page.url starts with '/de' %}
+                    Veröffentlichungen
+                {% elseif page.url starts with '/fr' %}
+                    Publications
+                {% elseif page.url starts with '/es' %}
+                    Publicaciones
+                {% endif %}
+            </a>
             <a class="nav-item nav-link{% if page.content_id == 'team' %} active{% endif %}"
                     {% if page.url starts with '/en' %}
                         href="{{page.url[0:3]}}/team/"
@@ -67,19 +88,6 @@
                     Equipo
                 {% endif %}
             </a>
-            <!--
-            <li class="nav-item{% if page.content_id == 'publications' %} active{% endif %}">
-                {% if page.url starts with '/en' %}
-                    <a class="nav-link" href="/en/publications/">Publications</a>
-                {% elseif page.url starts with '/de' %}
-                    <a class="nav-link" href="/de/veroeffentlichungen/">Veröffentlichungen</a>
-                {% elseif page.url starts with '/fr' %}
-                    <a class="nav-link" href="/fr/publications/">Publications</a>
-                {% elseif page.url starts with '/es' %}
-                    <a class="nav-link" href="/es/publicaciones/">Publicaciones</a>
-                {% endif %}
-            </li>
-            -->
         </div>
         <div class="navbar-nav ml-auto">
                 <a class="nav-item nav-link{% if page.url starts with '/en' %} active{%endif%}" href="/en/{{ site[page.content_id].en }}">EN</a>
