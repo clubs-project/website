@@ -33,14 +33,14 @@
     <nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
         <a class="navbar-brand" href="{{page.url[0:3]}}"><abbr title="Cross Lingual Bibliographic Search">CLUBS</abbr></a>
         <div class="navbar-nav">
-            <a class="nav-item nav-link{% if page.content_id == 'project' %} active{% endif %}" href="{{page.url[0:3]}}">
-                {% if page.url starts with '/en' %}
+            <a class="nav-item nav-link{% if page.content_id == 'project' %} active{% endif %}" href="/{{ lang }}/">
+                {% if lang == 'en' %}
                     Project
-                {% elseif page.url starts with '/de' %}
+                {% elseif lang == 'de' %}
                     Projekt
-                {% elseif page.url starts with '/fr' %}
+                {% elseif lang == 'fr' %}
                     Projet
-                {% elseif page.url starts with '/es' %}
+                {% elseif lang == 'es' %}
                     Proyecto
                 {% endif %}
             </a>
