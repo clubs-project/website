@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-{% if page.url starts with '/en' %}
+{% if lang == 'en' %}
     {%  set lang = 'en' %}
-{% elseif page.url starts with '/de' %}
+{% elseif lang == 'de' %}
     {%  set lang = 'de' %}
-{% elseif page.url starts with '/fr' %}
+{% elseif lang == 'fr' %}
     {%  set lang = 'fr' %}
-{% elseif page.url starts with '/es' %}
+{% elseif lang == 'es' %}
     {%  set lang = 'es' %}
 {% endif %}
 <html lang="{{ lang }}">
@@ -45,65 +45,65 @@
                 {% endif %}
             </a>
             <a class="nav-item nav-link{% if page.content_id == 'approaches' %} active{% endif %}"
-                    {% if page.url starts with '/en' %}
+                    {% if lang == 'en' %}
                         href="{{page.url[0:3]}}/approaches/"
-                    {% elseif page.url starts with '/de' %}
+                    {% elseif lang == 'de' %}
                         href="{{page.url[0:3]}}/ansaetze/"
-                    {% elseif page.url starts with '/fr' %}
+                    {% elseif lang == 'fr' %}
                         href="{{page.url[0:3]}}/approches/"
-                    {% elseif page.url starts with '/es' %}
+                    {% elseif lang == 'es' %}
                         href="{{page.url[0:3]}}/TODO/"
                     {% endif %}
             >
-                {% if page.url starts with '/en' %}
+                {% if lang == 'en' %}
                     Approaches
-                {% elseif page.url starts with '/de' %}
+                {% elseif lang == 'de' %}
                     Ansätze
-                {% elseif page.url starts with '/fr' %}
+                {% elseif lang == 'fr' %}
                     Approches
-                {% elseif page.url starts with '/es' %}
+                {% elseif lang == 'es' %}
                     TODO
                 {% endif %}
             </a>
             <a class="nav-item nav-link{% if page.content_id == 'publications' %} active{% endif %}"
-                    {% if page.url starts with '/en' %}
+                    {% if lang == 'en' %}
                         href="{{page.url[0:3]}}/publications/"
-                    {% elseif page.url starts with '/de' %}
+                    {% elseif lang == 'de' %}
                         href="{{page.url[0:3]}}/veroeffentlichungen/"
-                    {% elseif page.url starts with '/fr' %}
+                    {% elseif lang == 'fr' %}
                         href="{{page.url[0:3]}}/publications/"
-                    {% elseif page.url starts with '/es' %}
+                    {% elseif lang == 'es' %}
                         href="{{page.url[0:3]}}/publicaciones/"
                     {% endif %}
             >
-                {% if page.url starts with '/en' %}
+                {% if lang == 'en' %}
                     Publications
-                {% elseif page.url starts with '/de' %}
+                {% elseif lang == 'de' %}
                     Veröffentlichungen
-                {% elseif page.url starts with '/fr' %}
+                {% elseif lang == 'fr' %}
                     Publications
-                {% elseif page.url starts with '/es' %}
+                {% elseif lang == 'es' %}
                     Publicaciones
                 {% endif %}
             </a>
             <a class="nav-item nav-link{% if page.content_id == 'team' %} active{% endif %}"
-                    {% if page.url starts with '/en' %}
+                    {% if lang == 'en' %}
                         href="{{page.url[0:3]}}/team/"
-                    {% elseif page.url starts with '/de' %}
+                    {% elseif lang == 'de' %}
                         href="{{page.url[0:3]}}/team/"
-                    {% elseif page.url starts with '/fr' %}
+                    {% elseif lang == 'fr' %}
                         href="{{page.url[0:3]}}/equipe/"
-                    {% elseif page.url starts with '/es' %}
+                    {% elseif lang == 'es' %}
                         href="{{page.url[0:3]}}/equipo/"
                     {% endif %}
             >
-                {% if page.url starts with '/en' %}
+                {% if lang == 'en' %}
                     Team
-                {% elseif page.url starts with '/de' %}
+                {% elseif lang == 'de' %}
                     Team
-                {% elseif page.url starts with '/fr' %}
+                {% elseif lang == 'fr' %}
                     Équipe
-                {% elseif page.url starts with '/es' %}
+                {% elseif lang == 'es' %}
                     Equipo
                 {% endif %}
             </a>
@@ -132,17 +132,17 @@
         <div class="row">
             <div class="footer-col col-md-4">
                 <h4>
-                    {% if page.url starts with '/en' %}
+                    {% if lang == 'en' %}
                         Partners
-                    {% elseif page.url starts with '/de' %}
+                    {% elseif lang == 'de' %}
                         Partner
-                    {% elseif page.url starts with '/fr' %}
+                    {% elseif lang == 'fr' %}
                         TODO
-                    {% elseif page.url starts with '/es' %}
+                    {% elseif lang == 'es' %}
                         Consorcio
                     {% endif %}
                 </h4>
-                {% if page.url starts with '/de' %}
+                {% if lang == 'de' %}
                     <a href="https://www.zpid.de">
                         <img class="img-fluid institutional-logo" src="/assets/images/logos/zpid_de.svg">
                     </a>
@@ -161,13 +161,13 @@
             </div>
             <div class="footer-col col-md-4">
                 <h4>
-                    {% if page.url starts with '/en' %}
+                    {% if lang == 'en' %}
                         Funding
-                    {% elseif page.url starts with '/de' %}
+                    {% elseif lang == 'de' %}
                         Förderung
-                    {% elseif page.url starts with '/fr' %}
+                    {% elseif lang == 'fr' %}
                         TODO
-                    {% elseif page.url starts with '/es' %}
+                    {% elseif lang == 'es' %}
                         Financiamiento
                     {% endif %}
                 </h4>
@@ -182,13 +182,13 @@
                     </a>
                 {% endif %}
                 <h4>
-                    {% if page.url starts with '/en' %}
+                    {% if lang == 'en' %}
                         Contact
-                    {% elseif page.url starts with '/de' %}
+                    {% elseif lang == 'de' %}
                         Kontakt
-                    {% elseif page.url starts with '/fr' %}
+                    {% elseif lang == 'fr' %}
                         TODO
-                    {% elseif page.url starts with '/es' %}
+                    {% elseif lang == 'es' %}
                         Contacto
                     {% endif %}
                 </h4>
@@ -198,24 +198,24 @@
             </div>
             <div class="footer-col col-md-4">
                 <h4>
-                    {% if page.url starts with '/en' %}
+                    {% if lang == 'en' %}
                         Imprint
-                    {% elseif page.url starts with '/de' %}
+                    {% elseif lang == 'de' %}
                         Impressum
-                    {% elseif page.url starts with '/fr' %}
+                    {% elseif lang == 'fr' %}
                         TODO
-                    {% elseif page.url starts with '/es' %}
+                    {% elseif lang == 'es' %}
                         Aviso legal
                     {% endif %}
                 </h4>
                 <p>
-                    {% if page.url starts with '/en' %}
+                    {% if lang == 'en' %}
                         <small>This website is operated by the <a href="https://www.zpid.de/index.php?lang=EN">Leibniz Institute for Psychology Information (ZPID)</a>. The <a href="https://www.zpid.de/index.php?wahl=zpid&uwahl=impress&lang=EN">imprint of the ZPID</a> applies.</small>
-                    {% elseif page.url starts with '/de' %}
+                    {% elseif lang == 'de' %}
                         <small>Diese Webseite wird vom <a href="https://www.zpid.de">Leibniz-Institut für Psychologische Information und Dokumentation (ZPID)</a> betrieben. Es gilt das <a href="https://www.zpid.de/index.php?wahl=zpid&uwahl=impress">Impressum des ZPID</a>.</small>
-                    {% elseif page.url starts with '/fr' %}
+                    {% elseif lang == 'fr' %}
                         <small>TODO</small>
-                    {% elseif page.url starts with '/es' %}
+                    {% elseif lang == 'es' %}
                         <small>El sitio web está gestionado por el <a href="https://www.zpid.de/index.php?lang=EN">Instituto Leibniz para la Información en Psicología (ZPID)</a>. Es válido el <a href="https://www.zpid.de/index.php?wahl=zpid&uwahl=impress&lang=EN">aviso legal del ZPID</a>.</small>
                     {% endif %}
                 </p>
