@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-{% if lang == 'en' %}
+{% if page.url starts with '/en' %}
     {%  set lang = 'en' %}
-{% elseif lang == 'de' %}
+{% elseif page.url starts with '/de' %}
     {%  set lang = 'de' %}
-{% elseif lang == 'fr' %}
+{% elseif page.url starts with '/fr' %}
     {%  set lang = 'fr' %}
-{% elseif lang == 'es' %}
+{% elseif page.url starts with '/es' %}
     {%  set lang = 'es' %}
 {% endif %}
 <html lang="{{ lang }}">
