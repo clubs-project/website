@@ -37,6 +37,20 @@
     <style type="text/css">
         .institutional-logo {height: 6em; margin: 0.5em}
     </style>
+
+    {# piwik tracking #}
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//analytics.clubs-project.eu:444/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
 </head>
 <body style="padding-top: 70px"> {# padding to avoid navbar overlaying content #}
 <div class="container">
