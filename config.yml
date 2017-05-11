@@ -7,3 +7,5 @@ no_html_extension: true
 project: {en: "", de: "", fr: "", es: ""} #index file of each language directory
 publications: {en: "publications", de: "veroeffentlichungen"}
 team: {en: "team", de: "team"}
+approaches: {en: "approaches", de: "ansaetze"}
+data-rpivacy: {en: "data-privacy", de: "datenschutzerklaerung"}
