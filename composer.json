@@ -1,7 +1,12 @@
 {
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require": {
-            "spress/spress": "2.2.*"
-    }
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "spress/spress": "2.2.*",
+    "robloach/component-installer": "0.2.*",
+    "components/bootstrap": "4.0.0-alpha.6"
+  },
+  "config": {
+    "component-dir": "src/content/assets/managed/"
+  }
 }
