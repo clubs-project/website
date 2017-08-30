@@ -52,12 +52,22 @@
         })();
     </script>
 </head>
-<body style="padding-top: 70px"> {# padding to avoid navbar overlaying content #}
+
+    <style>
+        @media (max-width: 767px) {
+            body {padding-top: 240px}
+        }
+        @media (min-width: 768px) {
+            body {padding-top: 70px}
+        }
+    </style>
+
 <div class="container">
-    <nav class="navbar fixed-top navbar-toggleable-sm navbar-inverse bg-inverse">
-        <a class="navbar-brand" href="{{page.url[0:3]}}"><abbr title="Cross Lingual Bibliographic Search">CLUBS</abbr></a>
-        <div class="navbar-nav">
-            <a class="nav-item nav-link{% if page.content_id == 'project' %} active{% endif %}" href="/{{ lang }}/">
+    <nav class="navbar fixed-top navbar-toggleable-sm navbar-dark bg-dark">
+
+        <div class="navbar-nav d-flex flex-md-row flex-column">
+            <a class="navbar-brand" href="{{page.url[0:3]}}"><abbr title="Cross Lingual Bibliographic Search">CLUBS</abbr></a>
+            <a class="nav-item nav-link mr-md-3 {% if page.content_id == 'project' %} active{% endif %}" href="/{{ lang }}/">
                 {% if lang == 'en' %}
                     Project
                 {% elseif lang == 'de' %}
@@ -68,7 +78,7 @@
                     Proyecto
                 {% endif %}
             </a>
-            <a class="nav-item nav-link{% if page.content_id == 'approaches' %} active{% endif %}"
+            <a class="nav-item nav-link mr-md-3 {% if page.content_id == 'approaches' %} active{% endif %}"
                     {% if lang == 'en' %}
                         href="{{page.url[0:3]}}/approaches/"
                     {% elseif lang == 'de' %}
@@ -89,7 +99,7 @@
                     TODO
                 {% endif %}
             </a>
-            <a class="nav-item nav-link{% if page.content_id == 'publications' %} active{% endif %}"
+            <a class="nav-item nav-link mr-md-3 {% if page.content_id == 'publications' %} active{% endif %}"
                     {% if lang == 'en' %}
                         href="{{page.url[0:3]}}/publications/"
                     {% elseif lang == 'de' %}
@@ -110,7 +120,7 @@
                     Publicaciones
                 {% endif %}
             </a>
-            <a class="nav-item nav-link{% if page.content_id == 'team' %} active{% endif %}"
+            <a class="nav-item nav-link mr-md-3 {% if page.content_id == 'team' %} active{% endif %}"
                     {% if lang == 'en' %}
                         href="{{page.url[0:3]}}/team/"
                     {% elseif lang == 'de' %}
@@ -132,9 +142,9 @@
                 {% endif %}
             </a>
         </div>
-        <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link{% if lang == 'en' %} active{%endif%}" href="/en/{{ site[page.content_id].en }}">EN</a>
-            <a class="nav-item nav-link{% if lang == 'de' %} active{%endif%}" href="/de/{{ site[page.content_id].de }}">DE</a>
+        <div class="navbar-nav ml-auto d-flex flex-md-row flex-column">
+            <a class="nav-item nav-link mr-2 {% if lang == 'en' %} active{%endif%}" href="/en/{{ site[page.content_id].en }}">EN</a>
+            <a class="nav-item nav-link mr-2 {% if lang == 'de' %} active{%endif%}" href="/de/{{ site[page.content_id].de }}">DE</a>
             <!--
             <a class="nav-item nav-link{% if lang == 'fr' %} active{%endif%}" href="/fr/{{ site[page.content_id].fr }}">FR</a>
             <a class="nav-item nav-link{% if lang == 'es' %} active{%endif%}" href="/es/{{ site[page.content_id].es }}">ES</a>
@@ -153,37 +163,40 @@
 
 <footer>
     <div class="container">
-        <div class="row">
-            <div class="footer-col col-md-4">
-                <h4>
-                    {% if lang == 'en' %}
-                        Partners
-                    {% elseif lang == 'de' %}
-                        Partner
-                    {% elseif lang == 'fr' %}
-                        TODO
-                    {% elseif lang == 'es' %}
-                        Consorcio
-                    {% endif %}
-                </h4>
-                {% if lang == 'de' %}
-                    <a href="https://www.zpid.de">
-                        <img class="img-fluid institutional-logo" src="/assets/images/logos/zpid_de.svg">
-                    </a>
-                {% else %}
-                    <a href="https://www.zpid.de">
-                        <img class="img-fluid institutional-logo" src="/assets/images/logos/zpid_en.svg">
-                    </a>
-                {% endif %}
-
-                <a href="https://www.ibi.hu-berlin.de/">
-                    <img class="img-fluid institutional-logo" src="/assets/images/logos/hu.svg">
-                </a>
-                <a href="http://fr46.uni-saarland.de/index.php?id=3765">
-                    <img class="img-fluid institutional-logo" src="/assets/images/logos/uds.svg">
-                </a>
+        <div class="d-flex flex-column justify-content-center mt-5">
+            <div class="d-flex flex-md-row flex-column justify-content-center align-items-center">
+                    <h4 class="mb-3">
+                        {% if lang == 'en' %}
+                            Partners
+                        {% elseif lang == 'de' %}
+                            Partner
+                        {% elseif lang == 'fr' %}
+                            TODO
+                        {% elseif lang == 'es' %}
+                            Consorcio
+                        {% endif %}
+                    </h4>
             </div>
-            <div class="footer-col col-md-4">
+            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                    {% if lang == 'de' %}
+                        <a href="https://www.zpid.de">
+                            <img class="img-fluid institutional-logo" style="width:16em; height:6em" src="/assets/images/logos/zpid_de.svg">
+                        </a>
+                    {% else %}
+                        <a href="https://www.zpid.de">
+                            <img class="img-fluid institutional-logo" style="width:16em; height:6em" src="/assets/images/logos/zpid_en.svg">
+                        </a>
+                    {% endif %}
+                    <a href="https://www.ibi.hu-berlin.de/">
+                        <img class="img-fluid institutional-logo align-self-center" style="width:10em; height:6em" src="/assets/images/logos/hu.svg">
+                    </a>
+                    <a href="http://fr46.uni-saarland.de/index.php?id=3765">
+                        <img class="img-fluid institutional-logo" style="width:16em; height:6em" src="/assets/images/logos/uds.svg">
+                    </a>
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-md-row mt-5 align-items-md-start align-items-center">
+            <div class="d-flex flex-column col-6 col-md align-items-center mb-3 mb-md-0">
                 <h4>
                     {% if lang == 'en' %}
                         Funding
@@ -205,6 +218,8 @@
                         <img class="img-fluid institutional-logo" src="/assets/images/logos/leibniz_en.svg">
                     </a>
                 {% endif %}
+            </div>
+            <div class="d-flex flex-column col-6 col-md align-items-center mb-3 mb-md-0">
                 <h4>
                     {% if lang == 'en' %}
                         Contact
@@ -220,7 +235,7 @@
                     <small><a href="mailto:ramthun@zpid.de">Roland Ramthun &lt;ramthun@zpid.de&gt;</a></small>
                 </p>
             </div>
-            <div class="footer-col col-md-4">
+            <div class="d-flex flex-column col-6 col-md align-items-center mb-3 mb-md-0">
                 <h4>
                     {% if lang == 'en' %}
                         Imprint
@@ -246,11 +261,8 @@
             </div>
         </div>
     </div>
+    </div>
 </footer>
 
-{# jQuery first, then Tether, then Bootstrap JS. #}
-<script src="/assets/managed/jquery/jquery.slim.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="/assets/managed/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

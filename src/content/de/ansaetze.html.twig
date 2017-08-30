@@ -4,15 +4,36 @@ content_id: "approaches"
 title: "Die Ansätze"
 ---
 <div class="row">
-    <h1 class="display-4">Ansätze</h1>
+    <h1 class="display-4 mb-5">Ansätze</h1>
 </div>
 
-<div class="row" style="padding-top:3em;">
-    <div class="col-lg-7">
-        <ul class="list-group" style="padding-left: 2em;">
-            <li class="list-group-item list-group-item-info"><strong>1. Übersetzung der Suchanfrage</strong></li>
+<style type="text/css">
+    @media screen and (min-width:576px) {
+        .card {
+            max-width: 100%;
+        }
+    }
+
+    @media screen and (min-width:992px) and (max-width:1200px) {
+        .card {
+            max-width: 75%;
+        }
+    }
+
+    @media screen and (max-width:575px) {
+        .card {
+            max-width: 80%;
+        }
+    }
+</style>
+
+<div class="card-deck d-flex flex-lg-row flex-column flex-wrap">
+    <div class="card mb-5" style="min-width:30rem;">
+        <div class="card-header list-group-item-info"><strong>1. Übersetzung der Suchanfrage</strong></div>
+        <div class="card-body">
+        <ul class="list-group list-group-flush">
             <li class="list-group-item">Das Suchportal erweitert die Suchanfrage um Übersetzungen der in der Anfrage enthaltenen Terme und Phrase und fragt die erweiterte Version der Suchanfrage dann ab</li>
-            <li class="list-group-item"><img src="/assets/images/approaches/approach1.svg" alt=""></li>
+            <img class="card-img-top" src="/assets/images/approaches/approach1.svg" alt="">
             <li class="list-group-item list-group-item-warning">Nachteile</li>
             <li class="list-group-item">
                 <ul>
@@ -20,15 +41,14 @@ title: "Die Ansätze"
                 </ul>
             </li>
         </ul>
+        </div>
     </div>
-</div>
-
-<div class="row" style="padding-top:3em;">
-    <div class="col-lg-7">
-        <ul class="list-group" style="padding-left: 2em;">
-            <li class="list-group-item list-group-item-info"><strong>2. Übersetzung des Inhalts</strong></li>
+    <div class="card mb-5" style="min-width:30rem">
+        <div class="card-header list-group-item-info"><strong>2. Übersetzung des Inhalts</strong></div>
+        <div class="card-body">
+        <ul class="list-group list-group-flush">
             <li class="list-group-item">Übersetzung der relevanten Teile des Inhalts des Portals (Metadaten und Abstracts) in alle anderen Sprachen</li>
-            <li class="list-group-item"><img src="/assets/images/approaches/approach2.svg" alt=""></li>
+            <img class="card-img-top" src="/assets/images/approaches/approach2.svg" alt="">
             <li class="list-group-item list-group-item-success">Vorteile</li>
             <li class="list-group-item">
                 <ul>
@@ -43,50 +63,49 @@ title: "Die Ansätze"
                 </ul>
             </li>
         </ul>
+        </div>
     </div>
-</div>
-
-<div class="row" style="padding-top:3em;">
-    <div class="col-lg-7">
-        <ul class="list-group" style="padding-left: 2em;">
-            <li class="list-group-item list-group-item-info"><strong>3. Englisch als Brückensprache</strong></li>
-            <li class="list-group-item">Online-Übersetzung aller Suchanfragen und Offline-Übersetzung des Datenbestands, jeweils ins Englische</li>
-            <li class="list-group-item"><img src="/assets/images/approaches/approach3.svg" alt=""></li>
-            <li class="list-group-item list-group-item-success">Vorteile</li>
-            <li class="list-group-item">
-                <ul>
-                    <li>nur drei Übersetzungsrichtungen notwendig</li>
-                    <li>Übersetzungen ins Englische sind qualitativ vermutlich am besten</li>
-                </ul>
-            </li>
-            <li class="list-group-item list-group-item-warning">Nachteile</li>
-            <li class="list-group-item">
-                <ul>
-                    <li>getrennte Übersetzungen von Suchanfragen und Datenbestand können an zwei Stellen zu Übersetzungsfehlern führen</li>
-                </ul>
-            </li>
-        </ul>
+    <div class="card mb-5" style="min-width:30rem">
+        <div class="card-header list-group-item-info"><strong>3. Englisch als Brückensprache</strong></div>
+        <div class="card-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Online-Übersetzung aller Suchanfragen und Offline-Übersetzung des Datenbestands, jeweils ins Englische</li>
+                <img class="card-img-top" src="/assets/images/approaches/approach3.svg" alt="">
+                <li class="list-group-item list-group-item-success">Vorteile</li>
+                <li class="list-group-item">
+                    <ul>
+                        <li>nur drei Übersetzungsrichtungen notwendig</li>
+                        <li>Übersetzungen ins Englische sind qualitativ vermutlich am besten</li>
+                    </ul>
+                </li>
+                <li class="list-group-item list-group-item-warning">Nachteile</li>
+                <li class="list-group-item">
+                    <ul>
+                        <li>getrennte Übersetzungen von Suchanfragen und Datenbestand können an zwei Stellen zu Übersetzungsfehlern führen</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
-
-<div class="row" style="padding-top:3em;">
-    <div class="col-lg-7">
-        <ul class="list-group" style="padding-left: 2em;">
-            <li class="list-group-item list-group-item-info"><strong>4. Wissensbasierter Ansatz</strong></li>
-            <li class="list-group-item">In der Suchanfrage enthaltene Bezeichnungen werden online auf fachspezifische Thesauri abgebildet</li>
-            <li class="list-group-item"><img src="/assets/images/approaches/approach4.svg" alt=""></li>
-            <li class="list-group-item list-group-item-success">Vorteile</li>
-            <li class="list-group-item">
-                <ul>
-                    <li>kann mit jeder der drei anderen Methoden kombiniert werden</li>
-                </ul>
-            </li>
-            <li class="list-group-item list-group-item-warning">Nachteile</li>
-            <li class="list-group-item">
-                <ul>
-                    <li>PubPsych-Datensätze nutzen mehrere verschiedene kontrollierte Vokabulare, so dass Abbildungen der verschiedenen Terme aufeinander notwendig sind</li>
-                </ul>
-            </li>
-        </ul>
+    <div class="card mb-5" style="min-width:30rem">
+        <div class="card-header list-group-item-info"><strong>4. Wissensbasierter Ansatz</strong></div>
+        <div class="card-body">
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item">In der Suchanfrage enthaltene Bezeichnungen werden online auf fachspezifische Thesauri abgebildet</li>
+                <img class="card-img-top" src="/assets/images/approaches/approach4.svg" alt=""></li>
+                <li class="list-group-item list-group-item-success">Vorteile</li>
+                <li class="list-group-item">
+                    <ul>
+                        <li>kann mit jeder der drei anderen Methoden kombiniert werden</li>
+                    </ul>
+                </li>
+                <li class="list-group-item list-group-item-warning">Nachteile</li>
+                <li class="list-group-item">
+                    <ul>
+                        <li>PubPsych-Datensätze nutzen mehrere verschiedene kontrollierte Vokabulare, so dass Abbildungen der verschiedenen Terme aufeinander notwendig sind</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
