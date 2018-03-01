@@ -6,6 +6,7 @@ no_html_extension: true
 #mapping of content IDs to language specific file names
 project: {en: "", de: "", fr: "", es: ""} #index file of each language directory
 publications: {en: "publications", de: "veroeffentlichungen"}
+project-documentation: {en: "project-documentation", de: "projektdokumentation"}
 team: {en: "team", de: "team"}
 approaches: {en: "approaches", de: "ansaetze"}
 data-rpivacy: {en: "data-privacy", de: "datenschutzerklaerung"}

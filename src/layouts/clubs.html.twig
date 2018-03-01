@@ -99,6 +99,27 @@
                     TODO
                 {% endif %}
             </a>
+            <a class="nav-item nav-link mr-md-3 {% if page.content_id == 'project-documentation' %} active{% endif %}"
+                    {% if lang == 'en' %}
+                        href="{{page.url[0:3]}}/project-documentation/"
+                    {% elseif lang == 'de' %}
+                        href="{{page.url[0:3]}}/projektdokumentation/"
+                    {% elseif lang == 'fr' %}
+                        href="{{page.url[0:3]}}/TODO/"
+                    {% elseif lang == 'es' %}
+                        href="{{page.url[0:3]}}/TODO/"
+                    {% endif %}
+            >
+                {% if lang == 'en' %}
+                    Project documentation
+                {% elseif lang == 'de' %}
+                    Projektdokumentation
+                {% elseif lang == 'fr' %}
+                    TODO
+                {% elseif lang == 'es' %}
+                    TODO
+                {% endif %}
+            </a>
             <a class="nav-item nav-link mr-md-3 {% if page.content_id == 'publications' %} active{% endif %}"
                     {% if lang == 'en' %}
                         href="{{page.url[0:3]}}/publications/"
