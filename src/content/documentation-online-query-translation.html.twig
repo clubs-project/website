@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>
+        Online integration into PubPsych - HackMD
+    </title>
+    <link rel="icon" type="image/png" href="https://hackmd.io/favicon.png">
+    <link rel="apple-touch-icon" href="https://hackmd.io/apple-touch-icon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" integrity="sha256-3iu9jgsy9TpTwXKb7bNQzqWekRX7pPK+2OLj3R922fo=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.5.0/octicons.min.css" integrity="sha256-QiWfLIsCT02Sdwkogf6YMiQlj4NE84MKkzEMkZnMGdg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" integrity="sha256-vtR0hSWRc3Tb26iuN2oZHt3KRUomwTufNIf5/4oeCyg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojify.js/1.1.0/css/basic/emojify.min.css" integrity="sha256-UOrvMOsSDSrW6szVLe8ZDZezBxh5IoIfgTwdNDgTjiU=" crossorigin="anonymous" />
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i|Source+Code+Pro:300,400,500|Source+Sans+Pro:300,300i,400,400i,600,600i|Source+Serif+Pro&subset=latin-ext);.hljs{display:block;background:#fff;padding:.5em;color:#333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-emphasis,.hljs-quote,.hljs-string,.hljs-strong,.hljs-template-variable,.hljs-variable{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-attribute,.hljs-bullet,.hljs-literal,.hljs-number,.hljs-symbol{color:#0086b3}.hljs-built_in,.hljs-builtin-name{color:#005cc5}.hljs-name,.hljs-section{color:#63a35c}.hljs-tag{color:#333}.hljs-attr,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-selector-pseudo,.hljs-title{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;word-wrap:break-word}.markdown-body:after,.markdown-body:before{display:table;content:""}.markdown-body:after{clear:both}.markdown-body>:first-child{margin-top:0!important}.markdown-body>:last-child{margin-bottom:0!important}.markdown-body a:not([href]){color:inherit;text-decoration:none}.markdown-body .absent{color:#c00}.markdown-body .anchor{float:left;padding-right:4px;margin-left:-20px;line-height:1}.markdown-body .anchor:focus{outline:none}.markdown-body blockquote,.markdown-body dl,.markdown-body ol,.markdown-body p,.markdown-body pre,.markdown-body table,.markdown-body ul{margin-top:0;margin-bottom:16px}.markdown-body hr{height:.25em;padding:0;margin:24px 0;background-color:#e7e7e7;border:0}.markdown-body blockquote{font-size:16px;padding:0 1em;color:#777;border-left:.25em solid #ddd}.markdown-body blockquote>:first-child{margin-top:0}.markdown-body blockquote>:last-child{margin-bottom:0}.markdown-body .loweralpha{list-style-type:lower-alpha}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin-top:24px;margin-bottom:16px;font-weight:600;line-height:1.25}.markdown-body h1 .octicon-link,.markdown-body h2 .octicon-link,.markdown-body h3 .octicon-link,.markdown-body h4 .octicon-link,.markdown-body h5 .octicon-link,.markdown-body h6 .octicon-link{color:#000;vertical-align:middle;visibility:hidden}.markdown-body h1:hover .anchor,.markdown-body h2:hover .anchor,.markdown-body h3:hover .anchor,.markdown-body h4:hover .anchor,.markdown-body h5:hover .anchor,.markdown-body h6:hover .anchor{text-decoration:none}.markdown-body h1:hover .anchor .octicon-link,.markdown-body h2:hover .anchor .octicon-link,.markdown-body h3:hover .anchor .octicon-link,.markdown-body h4:hover .anchor .octicon-link,.markdown-body h5:hover .anchor .octicon-link,.markdown-body h6:hover .anchor .octicon-link{visibility:visible}.markdown-body h1 code,.markdown-body h1 tt,.markdown-body h2 code,.markdown-body h2 tt,.markdown-body h3 code,.markdown-body h3 tt,.markdown-body h4 code,.markdown-body h4 tt,.markdown-body h5 code,.markdown-body h5 tt,.markdown-body h6 code,.markdown-body h6 tt{font-size:inherit}.markdown-body h1{font-size:2em}.markdown-body h1,.markdown-body h2{padding-bottom:.3em;border-bottom:1px solid #eee}.markdown-body h2{font-size:1.5em}.markdown-body h3{font-size:1.25em}.markdown-body h4{font-size:1em}.markdown-body h5{font-size:.875em}.markdown-body h6{font-size:.85em;color:#777}.markdown-body ol,.markdown-body ul{padding-left:2em}.markdown-body ol.no-list,.markdown-body ul.no-list{padding:0;list-style-type:none}.markdown-body ol ol,.markdown-body ol ul,.markdown-body ul ol,.markdown-body ul ul{margin-top:0;margin-bottom:0}.markdown-body li>p{margin-top:16px}.markdown-body li+li{margin-top:.25em}.markdown-body dl{padding:0}.markdown-body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}.markdown-body dl dd{padding:0 16px;margin-bottom:16px}.markdown-body table{display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}.markdown-body table th{font-weight:700}.markdown-body table td,.markdown-body table th{padding:6px 13px;border:1px solid #ddd}.markdown-body table tr{background-color:#fff;border-top:1px solid #ccc}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body img{max-width:100%;box-sizing:content-box;background-color:#fff}.markdown-body img[align=right]{padding-left:20px}.markdown-body img[align=left]{padding-right:20px}.markdown-body .emoji{max-width:none;vertical-align:text-top;background-color:transparent}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame>span{display:block;float:left;width:auto;padding:7px;margin:13px 0 0;overflow:hidden;border:1px solid #ddd}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{display:block;padding:5px 0 0;clear:both;color:#333}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}.markdown-body span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}.markdown-body code,.markdown-body tt{padding:0;padding-top:.2em;padding-bottom:.2em;margin:0;font-size:85%;background-color:rgba(0,0,0,.04);border-radius:3px}.markdown-body code:after,.markdown-body code:before,.markdown-body tt:after,.markdown-body tt:before{letter-spacing:-.2em;content:"\00a0"}.markdown-body code br,.markdown-body tt br{display:none}.markdown-body del code{text-decoration:inherit}.markdown-body pre{word-wrap:normal}.markdown-body pre>code{padding:0;margin:0;font-size:100%;word-break:normal;white-space:pre;background:transparent;border:0}.markdown-body .highlight{margin-bottom:16px}.markdown-body .highlight pre{margin-bottom:0;word-break:normal}.markdown-body .highlight pre,.markdown-body pre{padding:16px;overflow:auto;font-size:85%;line-height:1.45;background-color:#f7f7f7;border-radius:3px}.markdown-body pre code,.markdown-body pre tt{display:inline;max-width:auto;padding:0;margin:0;overflow:visible;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}.markdown-body pre code:after,.markdown-body pre code:before,.markdown-body pre tt:after,.markdown-body pre tt:before{content:normal}.markdown-body .csv-data td,.markdown-body .csv-data th{padding:5px;overflow:hidden;font-size:12px;line-height:1;text-align:left;white-space:nowrap}.markdown-body .csv-data .blob-line-num{padding:10px 8px 9px;text-align:right;background:#fff;border:0}.markdown-body .csv-data tr{border-top:0}.markdown-body .csv-data th{font-weight:700;background:#f8f8f8;border-top:0}.markdown-body kbd{display:inline-block;padding:3px 5px;font-size:11px;line-height:10px;color:#555;vertical-align:middle;background-color:#fcfcfc;border:1px solid #ccc;border-bottom-color:#bbb;border-radius:3px;box-shadow:inset 0 -1px 0 #bbb}.news .alert .markdown-body blockquote{padding:0 0 0 40px;border:0 none}.activity-tab .news .alert .commits,.activity-tab .news .markdown-body blockquote{padding-left:0}.task-list-item{list-style-type:none}.task-list-item label{font-weight:400}.task-list-item.enabled label{cursor:pointer}.task-list-item+.task-list-item{margin-top:3px}.task-list-item-checkbox{float:left;margin:.31em 0 .2em -1.3em!important;vertical-align:middle;cursor:default!important}.markdown-body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;padding-top:40px;padding-bottom:40px;max-width:758px;overflow:visible!important}.markdown-body .emoji{vertical-align:top}.markdown-body pre{border:inherit!important}.markdown-body code{color:inherit!important}.markdown-body pre code .wrapper{display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex}.markdown-body pre code .gutter{float:left;overflow:hidden;-webkit-user-select:none;user-select:none}.markdown-body pre code .gutter.linenumber{text-align:right;position:relative;display:inline-block;cursor:default;z-index:4;padding:0 8px 0 0;min-width:20px;box-sizing:content-box;color:#afafaf!important;border-right:3px solid #6ce26c!important}.markdown-body pre code .gutter.linenumber>span:before{content:attr(data-linenumber)}.markdown-body pre code .code{float:left;margin:0 0 0 16px}.markdown-body .gist .line-numbers{border-left:none;border-top:none;border-bottom:none}.markdown-body .gist .line-data{border:none}.markdown-body .gist table{border-spacing:0;border-collapse:inherit!important}.markdown-body code[data-gist-id]{background:none;padding:0}.markdown-body code[data-gist-id]:after,.markdown-body code[data-gist-id]:before{content:""}.markdown-body code[data-gist-id] .blob-num{border:unset}.markdown-body code[data-gist-id] table{overflow:unset;margin-bottom:unset}.markdown-body code[data-gist-id] table tr{background:unset}.markdown-body[dir=rtl] pre{direction:ltr}.markdown-body[dir=rtl] code{direction:ltr;unicode-bidi:embed}.markdown-body .alert>p{margin-bottom:0}.markdown-body pre.abc,.markdown-body pre.flow-chart,.markdown-body pre.graphviz,.markdown-body pre.mermaid,.markdown-body pre.sequence-diagram{text-align:center;background-color:inherit;border-radius:0;white-space:inherit}.markdown-body pre.abc>code,.markdown-body pre.flow-chart>code,.markdown-body pre.graphviz>code,.markdown-body pre.mermaid>code,.markdown-body pre.sequence-diagram>code{text-align:left}.markdown-body pre.abc>svg,.markdown-body pre.flow-chart>svg,.markdown-body pre.graphviz>svg,.markdown-body pre.mermaid>svg,.markdown-body pre.sequence-diagram>svg{max-width:100%;height:100%}.markdown-body pre>code.wrap{white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word}.markdown-body .alert>p,.markdown-body .alert>ul{margin-bottom:0}.markdown-body summary{display:list-item}.markdown-body summary:focus{outline:none}.markdown-body details summary{cursor:pointer}.markdown-body details:not([open])>:not(summary){display:none}.markdown-body figure{margin:1em 40px}.markdown-body .mark,.markdown-body mark{background-color:#fff1a7}.vimeo,.youtube{cursor:pointer;display:table;text-align:center;background-position:50%;background-repeat:no-repeat;background-size:contain;background-color:#000;overflow:hidden}.vimeo,.youtube{position:relative;width:100%}.youtube{padding-bottom:56.25%}.vimeo img{width:100%;object-fit:contain;z-index:0}.youtube img{object-fit:cover;z-index:0}.vimeo iframe,.youtube iframe,.youtube img{width:100%;height:100%;position:absolute;top:0;left:0}.vimeo iframe,.youtube iframe{vertical-align:middle;z-index:1}.vimeo .icon,.youtube .icon{position:absolute;height:auto;width:auto;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;opacity:.3;transition:opacity .2s;z-index:0}.vimeo:hover .icon,.youtube:hover .icon{opacity:.6;transition:opacity .2s}.slideshare .inner,.speakerdeck .inner{position:relative;width:100%}.slideshare .inner iframe,.speakerdeck .inner iframe{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.MJX_Assistive_MathML{display:none}.ui-infobar{position:relative;z-index:2;max-width:760px;margin:25px auto -25px;padding:0 15px;color:#777}.toc .invisable-node{list-style-type:none}.ui-toc{position:fixed;bottom:20px;z-index:998}.ui-toc-label{opacity:.3;background-color:#ccc;border:none;transition:opacity .2s}.ui-toc .open .ui-toc-label{opacity:1;color:#fff;transition:opacity .2s}.ui-toc-label:focus{opacity:.3;background-color:#ccc;color:#000}.ui-toc-label:hover{opacity:1;background-color:#ccc;transition:opacity .2s}.ui-toc-dropdown{margin-top:23px;margin-bottom:20px;padding-left:10px;padding-right:10px;max-width:45vw;width:25vw;max-height:70vh;overflow:auto;text-align:inherit}.ui-toc-dropdown>.toc{max-height:calc(70vh - 100px);overflow:auto}.ui-toc-dropdown[dir=rtl] .nav{padding-right:0;letter-spacing:.0029em}.ui-toc-dropdown a{overflow:hidden;text-overflow:ellipsis;white-space:pre}.ui-toc-dropdown .nav>li>a{display:block;padding:4px 20px;font-size:13px;font-weight:500;color:#767676}.ui-toc-dropdown .nav>li:first-child:last-child > ul,.ui-toc-dropdown .toc.expand ul{display:block}.ui-toc-dropdown .nav>li>a:focus,.ui-toc-dropdown .nav>li>a:hover{padding-left:19px;color:#000;text-decoration:none;background-color:transparent;border-left:1px solid #000}.ui-toc-dropdown[dir=rtl] .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav>li>a:hover{padding-right:19px;border-left:none;border-right:1px solid #000}.ui-toc-dropdown .nav>.active:focus>a,.ui-toc-dropdown .nav>.active:hover>a,.ui-toc-dropdown .nav>.active>a{padding-left:18px;font-weight:700;color:#000;background-color:transparent;border-left:2px solid #000}.ui-toc-dropdown[dir=rtl] .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav>.active>a{padding-right:18px;border-left:none;border-right:2px solid #000}.ui-toc-dropdown .nav .nav{display:none;padding-bottom:10px}.ui-toc-dropdown .nav>.active>ul{display:block}.ui-toc-dropdown .nav .nav>li>a{padding-top:1px;padding-bottom:1px;padding-left:30px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a{padding-right:30px}.ui-toc-dropdown .nav .nav>li>ul>li>a{padding-top:1px;padding-bottom:1px;padding-left:40px;font-size:12px;font-weight:400}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a{padding-right:40px}.ui-toc-dropdown .nav .nav>li>a:focus,.ui-toc-dropdown .nav .nav>li>a:hover{padding-left:29px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>a:hover{padding-right:29px}.ui-toc-dropdown .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown .nav .nav>li>ul>li>a:hover{padding-left:39px}.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:focus,.ui-toc-dropdown[dir=rtl] .nav .nav>li>ul>li>a:hover{padding-right:39px}.ui-toc-dropdown .nav .nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>a{padding-left:28px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>a{padding-right:28px}.ui-toc-dropdown .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown .nav .nav>.active>.nav>.active>a{padding-left:38px;font-weight:500}.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:focus>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active:hover>a,.ui-toc-dropdown[dir=rtl] .nav .nav>.active>.nav>.active>a{padding-right:38px}.markdown-body[lang^=ja]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,Hiragino Kaku Gothic Pro,ヒラギノ角ゴ Pro W3,Osaka,Meiryo,メイリオ,MS Gothic,ＭＳ\ ゴシック,sans-serif}.ui-toc-dropdown[lang^=ja]{font-family:Source Sans Pro,Helvetica,Arial,Meiryo UI,MS PGothic,ＭＳ\ Ｐゴシック,sans-serif}.markdown-body[lang=zh-tw]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,PingFang TC,Microsoft JhengHei,微軟正黑,sans-serif}.ui-toc-dropdown[lang=zh-tw]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft JhengHei UI,微軟正黑UI,sans-serif}.markdown-body[lang=zh-cn]{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,Arial,PingFang SC,Microsoft YaHei,微软雅黑,sans-serif}.ui-toc-dropdown[lang=zh-cn]{font-family:Source Sans Pro,Helvetica,Arial,Microsoft YaHei UI,微软雅黑UI,sans-serif}.ui-affix-toc{position:fixed;top:0;max-width:15vw;max-height:70vh;overflow:auto}.back-to-top,.expand-toggle,.go-to-bottom{display:block;padding:4px 10px;margin-top:10px;margin-left:10px;font-size:12px;font-weight:500;color:#999}.back-to-top:focus,.back-to-top:hover,.expand-toggle:focus,.expand-toggle:hover,.go-to-bottom:focus,.go-to-bottom:hover{color:#563d7c;text-decoration:none}.back-to-top,.go-to-bottom{margin-top:0}.ui-user-icon{width:20px;height:20px;display:block;border-radius:3px;margin-top:2px;margin-bottom:2px;margin-right:5px;background-position:50%;background-repeat:no-repeat;background-size:cover}.ui-user-icon.small{width:18px;height:18px;display:inline-block;vertical-align:middle;margin:0 0 .2em}.ui-infobar>small>span{line-height:22px}.ui-infobar>small .dropdown{display:inline-block}.ui-infobar>small .dropdown a:focus,.ui-infobar>small .dropdown a:hover{text-decoration:none}.unselectable{-webkit-user-select:none;-o-user-select:none;user-select:none}@media print{blockquote,div,img,pre,table{page-break-inside:avoid!important}a[href]:after{font-size:12px!important}}.markdown-body.slides{position:relative;z-index:1;color:#222}.markdown-body.slides:before{content:"";display:block;position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;background-color:currentColor;box-shadow:0 0 0 50vw}.markdown-body.slides section[data-markdown]{position:relative;margin-bottom:1.5em;background-color:#fff;text-align:center}.markdown-body.slides section[data-markdown] code{text-align:left}.markdown-body.slides section[data-markdown]:before{content:"";display:block;padding-bottom:56.23%}.markdown-body.slides section[data-markdown]>div:first-child{position:absolute;top:50%;left:1em;right:1em;transform:translateY(-50%);max-height:100%;overflow:hidden}.markdown-body.slides section[data-markdown]>ul{display:inline-block}.markdown-body.slides>section>section+section:after{content:"";position:absolute;top:-1.5em;right:1em;height:1.5em;border:3px solid #777}body{font-smoothing:subpixel-antialiased!important;-webkit-font-smoothing:subpixel-antialiased!important;-moz-osx-font-smoothing:auto!important;text-shadow:0 0 1em transparent,1px 1px 1.2px rgba(0,0,0,.004);-webkit-overflow-scrolling:touch;font-family:Source Sans Pro,Helvetica,Arial,sans-serif;letter-spacing:.025em}.focus,:focus{outline:none!important}::-moz-focus-inner{border:0!important}body.modal-open{overflow-y:auto;padding-right:0!important}
+    </style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" integrity="sha256-g6iAfvZp+nDQ2TdTR/VVKJf3bGro4ub5fvWSWVRi2NE=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js" integrity="sha256-8E4Is26QH0bD52WoQpcB+R/tcWQtpzlCojrybUd7Mxo=" crossorigin="anonymous"></script>
+    <![endif]-->
+</head>
+
+<body>
+<div id="doc" class="markdown-body container-fluid comment-enabled" style="position: relative;"><h1 id="Online-integration-into-PubPsych"><a class="anchor hidden-xs" href="#Online-integration-into-PubPsych" title="Online-integration-into-PubPsych"><span class="octicon octicon-link"></span></a>Online integration into PubPsych</h1><p>Everything is implemented with respect to Solr 6.6.5.</p><h2 id="QueryFieldRewriter-class"><a class="anchor hidden-xs" href="#QueryFieldRewriter-class" title="QueryFieldRewriter-class"><span class="octicon octicon-link"></span></a><em>QueryFieldRewriter</em> class</h2><p>This is the main class of the query translation module. Here, the actual translation takes place. Since it is the most interesting class, it is described first here, but details that are needed to fully understand the usage of the other classes involved will be given only in their respective paragraphs which can be found below in the text.</p><h3 id="Inner-classes"><a class="anchor hidden-xs" href="#Inner-classes" title="Inner-classes"><span class="octicon octicon-link"></span></a>Inner classes</h3><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">QueryNodeComparator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Comparator</span>&lt;<span class="hljs-title">QueryNode</span>&gt;</span>
+</code></pre><p><em>QueryNode</em> objects are compared using their <em>nodeId</em>: A <em>QueryNode</em> <em>A</em> is bigger than a <em>QueryNode</em> <em>B</em> if and only if <em>A</em>’s <em>nodeId</em> is bigger than <em>B</em>’s <em>nodeId</em>.</p><h3 id="Fields"><a class="anchor hidden-xs" href="#Fields" title="Fields"><span class="octicon octicon-link"></span></a>Fields</h3><p><strong>Note:</strong> In this section, only the fields used for the real (translation) functionality will be explained. There are other fields only used for gathering statistics for the evaluation of the system. The statistics will be explained in section 4.4.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Logger LOG =
+LoggerFactory.getLogger(QueryFieldRewriter.<span class="hljs-keyword">class</span>);
+</code></pre><p>The logger for this class.</p><pre><code class="Java hljs">private <span class="hljs-keyword">final</span> <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt;&gt; meshDict = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+</code></pre><p>The high-quality (domain) MeSh dictionary is stored in <em>meshDict</em>. The first key is the string (token or phrase) one queries, the second key is a language code (“en”, “de”, “fr”, or “es”; these codes are used in the dictionaries) and the value is the respective translation string. Every inner map contains exactly three entries (for all languages except the source language).</p><pre><code class="Java hljs">private <span class="hljs-keyword">final</span> <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt;&gt; mixedDict = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();
+</code></pre><p>The low-quality (out-of-domain) dictionary is stored in <em>mixedDict</em>. The structure is the same as in <em>meshDict</em>.</p><pre><code class="Java hljs">private <span class="hljs-keyword">final</span> <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">String</span>&gt;&gt;&gt; laFieldNames =
+<span class="hljs-keyword">new</span> TreeMap&lt;&gt;();
+</code></pre><p>Some fields have language-specific versions in the PubPsych core schema, some do not (e.g. <em>TI</em> has language-specific versions like <em>TI_D</em>, whereas <em>text</em> does not have language-specific versions). Only those fields that have language-specific versions are stored in this map.<br>
+        The first key is a field name, the second key is a language code (“E”, “D”, “F”, “S”; these codes are used in the PubPsych database schema) and the value is a list of language-specific field names. It is a list, because the exact number of language-specific field names varies (there is not only <em>TI_D</em>, but also <em>TI_D_from_E</em>, but there is only one German version of the field <em>SH</em>).</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> nodeIdCounter = <span class="hljs-number">1</span>;
+</code></pre><p>Every <em>QueryNode</em> is assigned a unique node ID. This ID is used as a sorting criterion.</p><h3 id="Methods"><a class="anchor hidden-xs" href="#Methods" title="Methods"><span class="octicon octicon-link"></span></a>Methods</h3><pre><code class="Java hljs"><span class="hljs-keyword">public</span> QueryFieldRewriter(<span class="hljs-keyword">String</span> pathToMeshDict, <span class="hljs-keyword">String</span> pashToMixedDict,
+            <span class="hljs-keyword">String</span> pathToLaFieldNames) <span class="hljs-keyword">throws</span> FileNotFoundException, IOException
+</code></pre><p>In the constructor, the dictionaries and the mapping between fields and language-specific field names (see above) are read in.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> readInFieldNames(<span class="hljs-keyword">String</span> pathToFieldNames) <span class="hljs-keyword">throws</span> FileNotFoundException, IOException
+</code></pre><p>Reads in the mapping between fields and language-specific field names. The expected format of the file containing the information on the mapping is:</p><ul>
+        <li>one line containing the field name</li>
+        <li>next line starts with a language code (D, E, F or S), then all language-specific names follow separated by whitespaces</li>
+        <li>after this is done for all languages for which a language-specific version of the current field exists, a blank line follows, then the schema is repeated for the next field</li>
+        <li>comments: lines starting with //</li>
+    </ul><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> readInDictionary(<span class="hljs-keyword">String</span> pathToDictionary, <span class="hljs-built_in">boolean</span> mesh) <span class="hljs-keyword">throws</span> FileNotFoundException, IOException
+</code></pre><p>Reads in the MeSh dictionary or the low-quality dictionary. The Boolean value <em>mesh</em> indicates in which map the dictionary is stored (<em>meshDict</em> or <em>mixedDict</em>).</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-literal">void</span> splitEntry(<span class="hljs-built_in">String</span> entry, <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt; translationMap, <span class="hljs-built_in">boolean</span> mesh)
+</code></pre><p>A method used in <em>readInDictionary</em> to split an entry like “en::translation” and add it to the <code>translationMap</code> with the language code as its key and the translation as its value.</p><pre><code class="Java hljs"><span class="hljs-symbol">private</span> Translation matchFieldNamesAndTranslations(<span class="hljs-meta">Map</span>&lt;<span class="hljs-keyword">String, </span><span class="hljs-keyword">String&gt; </span>translationMap, <span class="hljs-keyword">String </span><span class="hljs-meta">field</span>)
+</code></pre><p>Gets a map with language codes as key and translations for a whole phrase as values. Returns a map of language-specific field names and corresponding translations. Does not check whether a translation equals the original string, since this way, more fields can be searched. If a combination of field and language doesn’t have a specific field name (like <em>SH</em> and French), this is marked by a tilde (e.g. <em>SH~F</em>) to be able to set apart language-specific field names that exist in the schema from those that are only needed in this code to distinguish different languages.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-built_in">Boolean</span> gatherTransInfo(<span class="hljs-built_in">String</span> fieldName, <span class="hljs-built_in">String</span> laFieldCode,
+            <span class="hljs-built_in">String</span> laTransCode, <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt; fieldsAndTranslations,
+            <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Boolean</span>&gt; fieldNamesLASpecific,
+            <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt; translationMap)
+</code></pre><p>Returns <em>true</em> if a language-specific name for <em>fieldName</em> and the language encoded by <em>laFieldCode</em> exists. If yes, each language-specific field name is used as a key to create a new entry of <em>fieldsAndTranslations</em>, each with <em>translationMap</em>’s value for the key <em>laTransCode</em> as its value. If no, <em>false</em> is returned and nothing else happens.<br>
+        This method is used in <em>matchFieldNamesAndTranslatons</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-literal">void</span> addDummyField(<span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt; translationMap,
+            <span class="hljs-built_in">String</span> field, <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt; fieldsAndTranslations,
+            <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Boolean</span>&gt; fieldNamesLASpecific, <span class="hljs-built_in">String</span> laTransCode,
+            <span class="hljs-built_in">String</span> laFieldCode
+</code></pre><p>Builds a dummy language-specific field name following the pattern <em>field</em> + “~” + <em>laFieldCode</em> and uses this as as key to create a new entry of <em>fieldsAndTranslations</em> with <em>translationMap</em>’s value for the key <em>laTransCode</em> as its value.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> removePluralEnding(<span class="hljs-keyword">String</span> plural, <span class="hljs-keyword">String</span> language)
+</code></pre><p>Following simple rules that depend on the language indicated by <em>language</em> (codes: <em>en</em>, <em>de</em>, <em>fr</em>, and <em>es</em>), the method tries to remove plural endings. The implementation follows <em><a href="http://tradQueries.py" target="_blank" rel="noopener">tradQueries.py</a></em> in <em>DBTranslator/scripts/utils</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> Translation translateWholeString(<span class="hljs-keyword">String</span> original, <span class="hljs-keyword">String</span> field)
+</code></pre><p>Tries to translate <em>original</em> as a whole. The methods first looks it up in the MeSh dictionary. If this is not successful, it tries to find the string in the low-quality dictionary. Returns null if none of the dictionaries contains the string <em>original</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-built_in">boolean</span> checkSingular(<span class="hljs-built_in">String</span> possibleSingular, <span class="hljs-built_in">String</span> laCode,
+            <span class="hljs-built_in">String</span> token, <span class="hljs-built_in">boolean</span> countInStats, <span class="hljs-built_in">boolean</span> isEntireCopy,
+            <span class="hljs-built_in">boolean</span> mesh, <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt;&gt; translationByToken)
+</code></pre><p>Looks up a possible singular form derived with the method <em>removePluralEnding</em> in both dictionaries. If one of the dictionaries contains the possible singular form, an additional check whether the found entry has the same source language as the one that was assumed to derive the singular form is performed. This is done to avoid mistakes where a possible singular form of one language looks like a word in another language (e.g. a possible singular form of German <em>Weber</em> would be, according to our simple rules, <em>web</em>, which would induce strange translations due to the English word <em>web</em>).<br>
+        The methods returns <em>true</em> if an entry with the correct source language could be found.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> Translation <span class="hljs-built_in">translate</span>(<span class="hljs-keyword">String</span> original, <span class="hljs-keyword">String</span> field)
+</code></pre><p>First tries to translate <em>original</em> as a whole (using <em>translateWholeString</em>). If there is no translation, the string is split into tokens. Each token is looked up separately. If a token cannot be found in any of the dictionaries, <em>removePluralEnding</em> is used to derive a possible singular form. If no singular form with correct source language (see <em>checkSingular</em>) is found in any of the dictionaries, the respective token simply gets copied.</p><pre><code class="Java hljs"><span class="hljs-symbol">public</span> QueryNode <span class="hljs-keyword">buildQueryNode(Query </span>query, <span class="hljs-keyword">BooleanClause.Occur </span>occLvl)
+</code></pre><p>Builds a tree displaying the structure of <em>query</em> and its subqueries if they exist. If a new class is added to the subclasses of <em>Query</em> that the <em>ZpidQParser</em> uses, one needs to implement a mapping into the <em>QueryNode</em> structure here. Otherwise, queries of this new class just get copied and will never be translated. For details on the <em>QueryNode</em> class: see below.</p><pre><code class="Java hljs">public QueryNode translateQueryNode(<span class="hljs-name">QueryNode</span> old)
+</code></pre><p>Returns <em>old</em> after all structural changes with respect to the translations have been made. First, it is checked whether <em>old</em> has to be translated at all. If not, nothing is changed. If yes, the <em>queryType</em> of <em>old</em> determines what is happening. In the following, I use expressions like “<em>BooleanQueries</em>” instead of writing “<em>QueryNodes</em> representing a <em>BooleanQuery</em>” each time which would be technically correct. It should be clear from the context whether I refer to the actual Solr <em>BooleanQuery</em> class or my <em>QueryNode</em> class.</p><ul>
+        <li><em>BooleanQueries</em>:
+            <ul>
+                <li>Children that have occurrence level <em>SHOULD</em> are replaced with the result of calling <em>translateQueryNode</em> on them.</li>
+                <li>The search strings of all children that are <em>TermQueries</em> or <em>PhraseQueries</em> and that query the same field and have occurrence level <em>MUST</em> (which means they are combined with <em>AND</em>) are concatenated. The result of this concatenation is looked up as a whole. If a dictionary entry has been found, the original nodes are removed from <em>old</em>’s list of children and a new intermediate node <em>inBetween</em> with occurrence level <em>MUST</em> is created. The <em>QueryNodes</em> that are translations are added as <em>inBetween</em>’s children, each with occurrence level <em>SHOULD</em>. The original nodes are grouped under another new node named <em>parentOfOldNodes</em>. This node is then added as another child of <em>inBetween</em> (also with occurrence level <em>SHOULD</em>). <em>inBetween</em> is then added as a child of <em>old</em> (with occurrence level <em>MUST</em>). If the concatenated string is not contained in any of the dictionaries, every child node is replaced with the result of <em>translateQueryNode</em> called on it.</li>
+                <li>Children that are <em>DisjunctionMaxQueries</em> are collected separately. If there is more than one child that is a <em>DisjunctionMaxQuery</em>, we try to concatenate the search strings of disjuncts of different <em>DisjunctionMaxQueries</em>. These disjuncts must query the same field. If they are <em>BoostQueries</em>, they must also have the same boost factor. If such disjuncts are found and there is an entry for the concatenated string in one of the dictionaries, the structure of the respective <em>DisjunctionMaxQueries</em> is changed using the method <em>translateGroup</em>. In any case, all <em>DisjunctionMaxQueries</em> are added to <em>nodesToBeTranslatedAlone</em> (a list of nodes that have to be translated alone). If some disjuncts could be translated as a group, each of these nodes is marked as a node that does not have to be translated (anymore).</li>
+                <li>Children that are <em>BoostQueries</em> or <em>BooleanQueries</em> are added to <em>nodesToBeTranslatedAlone</em>.</li>
+                <li>In the list of children of <em>old</em>, each element <em>n</em> of <em>nodesToBeTranslatedAlone</em> is replaced with the result of <em>translateQueryNode(n)</em>. <em>old</em> is returned.</li>
+            </ul>
+        </li>
+        <li><em>DisjunctionMaxQueries</em>:
+            <ul>
+                <li>Children that are <em>BooleanQueries</em> or <em>DisjunctionMaxQueries</em> are translated alone.</li>
+                <li>For each child that is a <em>BoostQuery</em>, <em>translateWrappedQueryOfBoostQuery</em> is called to create a list of new nodes that will be added to <em>old</em>’s list of children.</li>
+                <li>For each child that is a <em>TermQuery</em> or a <em>BoostQuery</em>, <em>buildNewChildren</em> is called to create a list of new nodes that will be added to <em>old</em>’s list of children.</li>
+                <li><em>old</em> is returned.</li>
+            </ul>
+        </li>
+        <li><em>BoostQueries</em>: <em>translateWrappedQueryOfBoostQuery</em> is called to create a list of new nodes. If this list is empty, the wrapped query was a <em>BooleanQuery</em> or a <em>DisjunctionMaxQuery</em> and has then directly been replaced by its translation. Otherwise, <em>old</em> and its translations (new <em>BoostQueries</em>) are turned into children of a new <em>BooleanQuery</em> <em>inBetween</em>. All of them get the occurrence level <em>SHOULD</em>, whereas <em>inBetween</em>’s occurrence level is set to the original occurrence level of <em>old</em>. <em>inBetween</em> is returned.</li>
+        <li><em>PhraseQueries</em> and <em>TermQueries</em>: A <em>Translation</em> object is created using the method <em>translate</em> on <em>old</em>’s <em>text</em> and <em>field</em>. Based on this object, a list of new (translated) nodes with occurrence level <em>SHOULD</em> is created and added to the children list of a new node <em>inBetween</em>, which is also made the parent of <em>old</em>. The occurrence level of <em>inBetween</em> is set to the occurrence level of <em>old</em>, whereas <em>old</em>’s occurrence level is set to <em>SHOULD</em>. <em>inBetween</em> is returned.</li>
+        <li>All other subclasses of <em>Query</em>: A warning is logged that there is an unhandled <em>QueryType</em> and <em>old</em> is returned with no changes at all.</li>
+    </ul><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-literal">void</span> translateGroup(QueryNode representative, <span class="hljs-built_in">List</span>&lt;QueryNode&gt; <span class="hljs-keyword">group</span>,
+            <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt; translationMap, <span class="hljs-built_in">List</span>&lt;QueryNode&gt; disjunctionMaxQueries, <span class="hljs-built_in">List</span>&lt;<span class="hljs-built_in">Integer</span>&gt; idsOfDMQs)
+</code></pre><p>This method is used to translate disjuncts of different <em>DisjunctionMaxQueries</em> that have been matched together (cf. <em>translateQueryNode</em>). The translation of the concatenated tokens is split into single tokens for which new <em>QueryNodes</em> are created and distributed as disjuncts among the <em>DisjunctionMaxQueries</em> to which the original nodes belonged. All original nodes are then marked as “does not have to be translated” (thus avoiding double translations).</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-built_in">Map</span>&lt;QueryNode, <span class="hljs-built_in">List</span>&lt;QueryNode&gt;&gt; matchDMQsWithSameField(<span class="hljs-built_in">List</span>&lt;QueryNode&gt; disjunctionMaxQueries)
+</code></pre><p>This method is used to find disjuncts of different <em>DisjunctionMaxQueries</em> that query the same field (and have the same boost factor if applicable). In the returned map, the key of each entry is a representative <em>QueryNode</em> and the value is a list of all the <em>QueryNodes</em> that query the same field (and have the same boost factor if applicable) as the representative <em>QueryNode</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">List</span>&lt;QueryNode&gt; buildNewChildren(Translation trans,
+            QueryNode.QueryType typeOfChildren, <span class="hljs-keyword">boolean</span> moreThanOneOriginalNode,
+            <span class="hljs-keyword">float</span> boost, QueryNode.QueryType typeOfWrappedQuery)
+</code></pre><p>Returns a list of <em>QueryNodes</em> representing the translations. If <em>typeOfChildren</em> is TERM and <em>moreThanOneOriginalNode</em> is <em>true</em> (so the translation is based on the concatenation of at least two <em>TermQueries</em> or <em>PhraseQueries</em>), then the translation string of each target language is split into tokens. If there is more than one token, then a new <em>QueryNode</em> with occurrence level <em>MUST</em> is created for every token. These new nodes are then made children of a new intermediate node with occurrence level <em>SHOULD</em> which is added to the returned list. If there is only one token or the translation is based on just one <em>TermQuery</em> or <em>PhraseQuery</em>, a new node created with <em>buildNewChild</em> is added to the returned list. In case of <em>BoostQueries</em>, a warning is logged if <em>moreThanOneOriginalNode</em> is <em>true</em> and a new node of type BOOST is built whose wrapped query is created with <em>buildNewChild</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> QueryNode buildNewChild(QueryNode.QueryType typeOfChild, <span class="hljs-keyword">String</span> fieldName, <span class="hljs-keyword">String</span> <span class="hljs-built_in">text</span>, BooleanClause.Occur occLvl)
+</code></pre><p>Returns a new <em>QueryNode</em> of type <em>typeOfChild</em> with <em>field</em> set to <em>fieldName</em>, <em>text</em> set to <em>text</em> and the occurrence level set to <em>occLvl</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> hasToBeTranslated(<span class="hljs-keyword">String</span> fieldName)
+</code></pre><p>Returns <em>true</em> if one of the following conditions holds:</p><ul>
+        <li><em>fieldName</em> is a key of <em>laFieldNames</em></li>
+        <li><em>fieldName</em> equals “text”</li>
+        <li><em>fieldName</em> equals “SW”.</li>
+    </ul><pre><code class="Java hljs">public QueryNode simplify(<span class="hljs-name">QueryNode</span> toSimplify)
+</code></pre><p>Simplifies <em>QueryNodes</em> with redundant structure: If the child <em>c</em> of a <em>BooleanQuery</em> is a <em>BooleanQuery</em> and has occurrence level <em>MUST</em>, then all its children (grandchildren of <em>toSimplify</em>) that also have occurrence level <em>MUST</em>, are removed from <em>c</em>’s list of children and added to <em>toSimplify</em>’s list of children. If all children of <em>c</em> have occurrence level <em>MUST</em>, <em>c</em> itself is removed from <em>toSimplify</em>’s list of children.</p><pre><code class="Java hljs">public <span class="hljs-keyword">Query</span> manipulateQuery(<span class="hljs-keyword">Query</span> <span class="hljs-keyword">query</span>)
+</code></pre><p>Maps <em>query</em> to a <em>QueryNode</em> object, simplifies this object with <em>simplify</em> and then runs <em>translateQueryNode</em> on it. The result of <em>translateQueryNode</em> is mapped back to a <em>Query</em> object which is then returned.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-built_in">List</span>&lt;QueryNode&gt; translateWrappedQueryOfBoostQuery(QueryNode wrappedQuery, QueryNode.QueryType wqType, QueryNode bq)
+</code></pre><p>If <em>wqType</em> (type of <em>wrappedQuery</em>) is BOOLEAN or DISJUNCTIONMAX, the wrapped query of <em>bq</em> is replaced with <em>translateQueryNode(wrappedQuery)</em> and an empty list is returned. Otherwise, new nodes are created with <em>buildNewChildren</em>.</p><h2 id="QueryNode-class"><a class="anchor hidden-xs" href="#QueryNode-class" title="QueryNode-class"><span class="octicon octicon-link"></span></a><em>QueryNode</em> class</h2><p>The purpose of the <em>QueryNode</em> class is to provide an interface to manipulate the queries more easily than with Solr’s <em>Query</em> class. The main advantage is that one onley has to deal with one class for all query objects (and not with the many subclasses of <em>Query</em> that all provide different methods/fields). This way, one doesn’t have to build new <em>Query</em> objects for each change, but change the respective <em>QueryNode</em> object instead and then map it back to a <em>Query</em> object once all changes due to translation have been performed.</p><h3 id="Inner-classes1"><a class="anchor hidden-xs" href="#Inner-classes1" title="Inner-classes1"><span class="octicon octicon-link"></span></a>Inner classes</h3><pre><code class="Java hljs">public <span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">QueryType</span> {</span>
+   BOOLEAN, TERM, DISJUNCTIONMAX, PHRASE, BOOST, DUMMY
+}
+</code></pre><p>These are the subclasses of <em>Query</em> that the <em>ZpidQParser</em> uses (version as of November 2018).</p><ul>
+        <li>BOOLEAN: <em>BooleanQuery</em></li>
+        <li>TERM: <em>TermQuery</em></li>
+        <li>DISJUNCTIONMAX: <em>DisjunctionMaxQuery</em></li>
+        <li>PHRASE: <em>PhraseQuery</em></li>
+        <li>BOOST: <em>BoostQuery</em></li>
+        <li>DUMMY: Represents <em>Query</em> subclasses for which there is no implementation yet. This is important in case the <em>ZpidQParser</em> implementation starts using new/different classes. Somebody then would have to think about how to translate these classes.</li>
+    </ul><h3 id="Fields1"><a class="anchor hidden-xs" href="#Fields1" title="Fields1"><span class="octicon octicon-link"></span></a>Fields</h3><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> nodeId;
+</code></pre><p>Every <em>QueryNode</em> object is assigned a unique ID in the constructor. This is needed e.g. for sorting purposes.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">List</span>&lt;QueryNode&gt; children;
+</code></pre><p>This list contains <em>QueryNode</em> objects that are somehow subordinate to the given <em>QueryNode</em>. For instance, they can be subqueries of a <em>BooleanQuery</em> or disjuncts of a <em>DisjunctionMaxQuery</em>. <em>TermQuery</em> and <em>PhraseQuery</em> objects cannot have children.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> QueryType queryType;
+</code></pre><p>The type of the <em>Query</em> that the given <em>QueryNode</em> object represents.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> fieldName;
+</code></pre><p>This field is only set for <em>TermQuery</em> and <em>PhraseQuery</em> objects and contains the name of the corresponding field in the PubPsych core schema (e.g. <em>TI</em>).</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> <span class="hljs-built_in">text</span>;
+</code></pre><p>This field is only set for <em>TermQuery</em> and <em>PhraseQuery</em> objects and contains the actual text associated with that <em>Query</em> object.</p><pre><code class="Java hljs">private <span class="hljs-keyword">BooleanClause.Occur </span>occLvl<span class="hljs-comment">;</span>
+</code></pre><p>The occurrence level of the given <em>QueryNode</em> object is set if and only if the <em>QueryNode</em> object is the child of another <em>QueryNode</em> object with type BOOLEAN.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">Boolean</span> toTranslate;
+</code></pre><p>This field is set to <em>true</em> if <em>fieldName</em> if the <em>QueryNode</em> object (or the associated representative, cf. method <em>translateQueryNode</em> of the <em>QueryFieldRewriter</em> class) has not been translated yet and one of the following conditions holds:</p><ul>
+        <li>The <em>QueryNode</em> object represents a <em>TermQuery</em> or a <em>PhraseQuery</em> and <em>fieldName</em> is one of the translatable fields.</li>
+        <li>The <em>QueryNode</em> object has children.</li>
+    </ul><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> tieBreakerMultiplier;
+</code></pre><p>This field is set only for <em>QueryNode</em> objects representing a <em>DisjunctionMaxQuery</em>. It is a tie breaker value for multiple matches. For more details, see <a href="https://lucene.apache.org/core/6_6_0/core/org/apache/lucene/search/DisjunctionMaxQuery.html" target="_blank" rel="noopener">https://lucene.apache.org/core/6_6_0/core/org/apache/lucene/search/DisjunctionMaxQuery.html</a>.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> boost;
+</code></pre><p>This field is set only for <em>QueryNode</em> objects representing a <em>BoostQuery</em>.<br>
+        The higher the boost, the more important the wrapped query will be to the computed score. See <a href="https://lucene.apache.org/core/6_6_0/core/org/apache/lucene/search/BoostQuery.html" target="_blank" rel="noopener">https://lucene.apache.org/core/6_6_0/core/org/apache/lucene/search/BoostQuery.html</a>.</p><pre><code class="Java hljs">private Query originalQuery<span class="hljs-comment">;</span>
+</code></pre><p>The original <em>Query</em> object is stored in case it is an instance of an unhandled subclass of <em>Query</em>. When mapping <em>QueryNode</em> objects with type DUMMY back to <em>Query</em> objects, <em>originalQuery</em> will be returned.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> slop;
+</code></pre><p>This field is set only for <em>QueryNode</em> objects representing a <em>PhraseQuery</em>. It is the maximum edit distance for which terms in the <em>PhraseQuery</em> will still be matched to strings in the documents (see <a href="https://lucene.apache.org/core/6_6_0/core/org/apache/lucene/search/PhraseQuery.html" target="_blank" rel="noopener">https://lucene.apache.org/core/6_6_0/core/org/apache/lucene/search/PhraseQuery.html</a>). In the current implementation, the slop of the translated <em>PhraseQuery</em> objects is simply copied from the original <em>Query</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> parentId;
+</code></pre><p>The node ID of the parent node if the latter one exists. It is needed for matching disjuncts querying the same field but belonging to different <em>DisjunctionMaxQuery</em> objects.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Logger LOG = LoggerFactory.getLogger(QueryNode.<span class="hljs-keyword">class</span>);
+</code></pre><p>The logger object.</p><h3 id="Methods1"><a class="anchor hidden-xs" href="#Methods1" title="Methods1"><span class="octicon octicon-link"></span></a>Methods</h3><pre><code class="Java hljs"><span class="hljs-keyword">public</span> QueryNode(QueryType <span class="hljs-keyword">type</span>, <span class="hljs-built_in">int</span> id)
+</code></pre><p>Every <em>QueryNode</em> object needs a type and a unique ID. These two cannot be changed afterwards.</p><pre><code class="Java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getId</span><span class="hljs-params">()</span>
+</span></code></pre><p>Returns the unique node ID.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> QueryType <span class="hljs-built_in">getType</span>()
+</code></pre><p>Returns the <em>QueryType</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> addChild(QueryNode child)
+</code></pre><p>Adds <em>child</em> to <em>children</em> if this is an allowed operation for the given <em>queryType</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> void addChildren(List&lt;QueryNode&gt; <span class="hljs-keyword">new</span><span class="hljs-type">Children</span>)
+</code></pre><p>Adds all elements of <em>newChildren</em> to <em>children</em> if this is an allowed operation for the given <em>queryType</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-built_in">List</span>&lt;QueryNode&gt; getChildren()
+</code></pre><p>Returns the <em>children</em> list.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> QueryNode getChildAtIndex(<span class="hljs-keyword">int</span> <span class="hljs-keyword">index</span>)
+</code></pre><p>Returns the element of <em>children</em> that is at position <em>index</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> removeChildAtIndex(<span class="hljs-keyword">int</span> <span class="hljs-keyword">index</span>)
+</code></pre><p>Removes the element of <em>children</em> that is at position <em>index</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> replaceChildAtIndex(<span class="hljs-keyword">int</span> <span class="hljs-keyword">index</span>, QueryNode newChild)
+</code></pre><p>Replaces the element of <em>children</em> that is at position <em>index</em> with <em>newChild</em>.</p><pre><code class="Java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setFieldName</span><span class="hljs-params">(String name)</span></span>{
+</code></pre><p>Sets <em>fieldName</em> to <em>name</em> if the given <em>QueryNode</em> is of type TERM or PHRASE.</p><pre><code class="Java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getFieldName</span><span class="hljs-params">()</span></span>{
+</code></pre><p>Returns <em>fieldName</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> setText(<span class="hljs-keyword">String</span> <span class="hljs-built_in">text</span>)
+</code></pre><p>Sets <em>this.text</em> to <em>text</em> if the given <em>QueryNode</em> is of type TERM or PHRASE.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> getText()
+</code></pre><p>Returns <em>text</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> setOccurrenceLevel(BooleanClause.Occur lvl)
+</code></pre><p>Sets <em>occLvl</em> to <em>lvl</em>.</p><pre><code class="Java hljs">public BooleanClause<span class="hljs-selector-class">.Occur</span> getOccurrenceLevel()
+</code></pre><p>Returns <em>occLvl</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> markAsToTranslate()
+</code></pre><p>Sets <em>toTranslate</em> to <em>true</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> unmarkToTranslate()
+</code></pre><p>Sets <em>toTranslate</em> to <em>false</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> hasToBeTranslated()
+</code></pre><p>Returns <em>toTranslate</em>.</p><pre><code class="Java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setTieBreakerMultiplier</span><span class="hljs-params">(<span class="hljs-keyword">float</span> tbm)</span>
+</span></code></pre><p>Sets <em>tieBreakerMultiplier</em> to <em>tbm</em>.</p><pre><code class="Java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> <span class="hljs-title">getTieBreakerMultiplier</span><span class="hljs-params">()</span>
+</span></code></pre><p>Returns <em>tieBreakerMultiplier</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> setOriginalQuery(Query query)
+</code></pre><p>Sets <em>originalQuery</em> to <em>query</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> Query getOriginalQuery()
+</code></pre><p>Returns <em>originalQuery</em>.</p><pre><code class="Java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setBoost</span><span class="hljs-params">(<span class="hljs-keyword">float</span> boost)</span>
+</span></code></pre><p>Sets <em>this.boost</em> to <em>boost</em>.</p><pre><code class="Java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> <span class="hljs-title">getBoost</span><span class="hljs-params">()</span>
+</span></code></pre><p>Returns <em>boost</em>.</p><pre><code class="Java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setParentId</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span>
+</span></code></pre><p>Sets <em>parentId</em> to <em>id</em>.</p><pre><code class="Java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setSlop</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sl)</span>
+</span></code></pre><p>Sets <em>slop</em> to <em>sl</em>.</p><pre><code class="Java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getSlop</span><span class="hljs-params">()</span>
+</span></code></pre><p>Returns <em>slop</em>.</p><pre><code class="Java hljs"><span class="hljs-function"><span class="hljs-keyword">public</span> Query <span class="hljs-title">buildQuery</span><span class="hljs-params">()</span></span>{
+</code></pre><p>Maps the given <em>QueryNode</em> object back to an object of one of the subclasses of Solr’s <em>Query</em> class. Given the <em>QueryType</em>, the mapping works as follows:</p><ul>
+        <li>BOOLEAN: Each element <em>child</em> of <em>children</em> recursively calls <em>buildQuery()</em>. The resulting <em>Query</em> objects are added as subqueries with <em>child.getOccurrenceLevel()</em> to the new <em>BooleanQuery</em> object. If a <em>child</em> does not have an occurrence level, a warning is logged and the <em>childQuery</em> (respective <em>Query</em> object) is added with the occurrence level SHOULD.</li>
+        <li>DISJUNCTIONMAX: Each element <em>child</em> of <em>children</em> recursively calls <em>buildQuery()</em>. The resulting <em>Query</em> objects are all added to a list of disjuncts which is then used to build the new <em>DisjunctionMaxQuery</em> object.</li>
+        <li>PHRASE: <em>text</em> is split into tokens. Each token is then used (together with <em>fieldName</em>) to build a <em>Term</em> for the new <em>PhraseQuery</em>.</li>
+        <li>TERM: <em>text</em> and <em>fieldName</em> are used to construct a new <em>Term</em> object, with which the new <em>TermQuery</em> is then built.</li>
+        <li>BOOST: A new <em>BoostQuery</em> with the element of <em>children</em> that is at position 0 as its wrapped query and a boost with value <em>boost</em> is returned.</li>
+        <li>DUMMY: <em>originalQuery</em> is returned.</li>
+    </ul><h2 id="Translation-class"><a class="anchor hidden-xs" href="#Translation-class" title="Translation-class"><span class="octicon octicon-link"></span></a><em>Translation</em> class</h2><p>The <em>Translation</em> class is used to store information about the translation of a specific field and string.</p><h3 id="Fields2"><a class="anchor hidden-xs" href="#Fields2" title="Fields2"><span class="octicon octicon-link"></span></a>Fields</h3><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Logger LOG = LoggerFactory.getLogger(QueryNode.<span class="hljs-keyword">class</span>);
+</code></pre><p>The logger object.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-keyword">String</span> originalFieldName;
+</code></pre><p>The original field name.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt; fieldsAndTranslations;
+</code></pre><p>The keys of this map are the language-specific versions of <em>originalFieldName</em>, the values are the translations.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Boolean</span>&gt; fieldNamesLanguageSpecific;
+</code></pre><p>The keys of this map are the language-specific versions of <em>originalFieldName</em>. The values indicate whether these versions also exist in the Pubpsych core schema (<em>true</em>) or whether they are just dummy values to maintain the distinction between the different languages (<em>false</em>). We need these dummy values, because using <em>originalFieldName</em> (which will in this case be later used in the query itself) would overwrite existing translations in the map.</p><h3 id="Methods2"><a class="anchor hidden-xs" href="#Methods2" title="Methods2"><span class="octicon octicon-link"></span></a>Methods</h3><pre><code class="Java hljs"><span class="hljs-keyword">public</span> Translation(<span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt; translations,
+<span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Boolean</span>&gt; fieldNamesLASpecific, <span class="hljs-built_in">String</span> fieldName)
+</code></pre><p>Initializes the class fields with the given values.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> isLanguageSpecificFieldName(<span class="hljs-keyword">String</span> fieldName)
+</code></pre><p>Returns <em>true</em> if <em>fieldName</em> is a language-specific field name in the PubPsych core schema, <em>false</em> otherwise. Logs a warning if <em>fieldName</em> is not a key in <em>fieldNamesLanguageSpecific</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">Boolean</span>&gt; getFieldNamesLASpecificMap()
+</code></pre><p>Returns <em>fieldNamesLanguageSpecific</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">String</span>, <span class="hljs-built_in">String</span>&gt; getTranslations()
+</code></pre><p>Returns <em>fieldsAndTranslations</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> getOriginalFieldName()
+</code></pre><p>Returns <em>originalFieldName</em>.</p><h2 id="PreTranslationInfo-class"><a class="anchor hidden-xs" href="#PreTranslationInfo-class" title="PreTranslationInfo-class"><span class="octicon octicon-link"></span></a><em>PreTranslationInfo</em> class</h2><p>Objects of the <em>PreTranslationInfo</em> class store information that is gathered before the actual translation happens. It is used for the translation of <em>BooleanQuery</em> objects. The texts of all children of type <em>TermQuery</em> or <em>PhraseQuery</em> are concatenated and then stored in a <em>PreTranslationInfo</em> object to be able to look up the whole text related to the <em>BooleanQuery</em> in the dictionaries.</p><h3 id="Fields3"><a class="anchor hidden-xs" href="#Fields3" title="Fields3"><span class="octicon octicon-link"></span></a>Fields</h3><pre><code class="Java hljs"><span class="hljs-symbol">private</span> <span class="hljs-keyword">StringBuilder </span><span class="hljs-built_in">sb</span><span class="hljs-comment">;</span>
+</code></pre><p>The <em>StringBuilder</em> is used to concatenate the <em>text</em> strings of all subqueries of the <em>BooleanQuery</em> for which the <em>PreTranslationInfo</em> is gathered.</p><pre><code class="Java hljs"><span class="hljs-keyword">private</span> <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">Integer</span>, QueryNode&gt; originalNodes;
+</code></pre><p>The keys are the indices in the <em>children</em> list (list of subqueries) of the parent node (<em>BooleanQuery</em>), the values are the respective subqueries.</p><h3 id="Methods3"><a class="anchor hidden-xs" href="#Methods3" title="Methods3"><span class="octicon octicon-link"></span></a>Methods</h3><pre><code class="Java hljs"><span class="hljs-keyword">public</span> PreTranslationInfo()
+</code></pre><p>Initializes <em>sb</em> and <em>originalNodes</em> with an empty <em>StringBuilder</em> respectively an empty map.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> addString(<span class="hljs-keyword">String</span> s)
+</code></pre><p>Appends <em>s</em> to <em>sb</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">String</span> buildString()
+</code></pre><p>Builds the string that has been gathered by <em>sb</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> addOriginalNode(<span class="hljs-keyword">int</span> <span class="hljs-keyword">index</span>, QueryNode node)
+</code></pre><p>Adds <em>node</em> with key <em>index</em> to the <em>originalNodes</em> map.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-built_in">Set</span>&lt;<span class="hljs-built_in">Integer</span>&gt; getIntegers()
+</code></pre><p>Returns all keys of <em>originalNodes</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> Collection&lt;QueryNode&gt; getNodes()
+</code></pre><p>Returns all values of <em>originalNodes</em>.</p><pre><code class="Java hljs"><span class="hljs-keyword">public</span> <span class="hljs-built_in">Map</span>&lt;<span class="hljs-built_in">Integer</span>, QueryNode&gt; getOriginalNodesMap()
+</code></pre><p>Returns <em>originalNodes</em>.</p><div dir="ltr" class="resize-sensor" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"><div class="resize-sensor-expand" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"><div style="position: absolute; left: 0px; top: 0px; transition: all 0s ease 0s; width: 768px; height: 16039px;"></div></div><div class="resize-sensor-shrink" style="pointer-events: none; position: absolute; left: 0px; top: 0px; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden; max-width: 100%;"><div style="position: absolute; left: 0; top: 0; transition: 0s; width: 200%; height: 200%"></div></div></div></div>
+<div class="ui-toc dropup unselectable hidden-print" style="display:none;">
+    <div class="pull-right dropdown">
+        <a id="tocLabel" class="ui-toc-label btn btn-default" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" title="Table of content">
+            <i class="fa fa-bars"></i>
+        </a>
+        <ul id="ui-toc" class="ui-toc-dropdown dropdown-menu" aria-labelledby="tocLabel">
+            <div class="toc"><ul class="nav">
+                    <li class=""><a href="#Online-integration-into-PubPsych" title="Online integration into PubPsych">Online integration into PubPsych</a><ul class="nav">
+                            <li class=""><a href="#QueryFieldRewriter-class" title="QueryFieldRewriter class">QueryFieldRewriter class</a><ul class="nav">
+                                    <li class=""><a href="#Inner-classes" title="Inner classes">Inner classes</a></li>
+                                    <li class=""><a href="#Fields" title="Fields">Fields</a></li>
+                                    <li><a href="#Methods" title="Methods">Methods</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#QueryNode-class" title="QueryNode class">QueryNode class</a><ul class="nav">
+                                    <li><a href="#Inner-classes1" title="Inner classes">Inner classes</a></li>
+                                    <li><a href="#Fields1" title="Fields">Fields</a></li>
+                                    <li><a href="#Methods1" title="Methods">Methods</a></li>
+                                </ul>
+                            </li>
+                            <li class=""><a href="#Translation-class" title="Translation class">Translation class</a><ul class="nav">
+                                    <li class=""><a href="#Fields2" title="Fields">Fields</a></li>
+                                    <li><a href="#Methods2" title="Methods">Methods</a></li>
+                                </ul>
+                            </li>
+                            <li class=""><a href="#PreTranslationInfo-class" title="PreTranslationInfo class">PreTranslationInfo class</a><ul class="nav">
+                                    <li><a href="#Fields3" title="Fields">Fields</a></li>
+                                    <li class=""><a href="#Methods3" title="Methods">Methods</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+        </ul>
+    </div>
+</div>
+<div id="ui-toc-affix" class="ui-affix-toc ui-toc-dropdown unselectable hidden-print" data-spy="affix" style="top:17px;display:none;"  >
+    <div class="toc"><ul class="nav">
+            <li class=""><a href="#Online-integration-into-PubPsych" title="Online integration into PubPsych">Online integration into PubPsych</a><ul class="nav">
+                    <li class=""><a href="#QueryFieldRewriter-class" title="QueryFieldRewriter class">QueryFieldRewriter class</a><ul class="nav">
+                            <li class=""><a href="#Inner-classes" title="Inner classes">Inner classes</a></li>
+                            <li class=""><a href="#Fields" title="Fields">Fields</a></li>
+                            <li><a href="#Methods" title="Methods">Methods</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#QueryNode-class" title="QueryNode class">QueryNode class</a><ul class="nav">
+                            <li><a href="#Inner-classes1" title="Inner classes">Inner classes</a></li>
+                            <li><a href="#Fields1" title="Fields">Fields</a></li>
+                            <li><a href="#Methods1" title="Methods">Methods</a></li>
+                        </ul>
+                    </li>
+                    <li class=""><a href="#Translation-class" title="Translation class">Translation class</a><ul class="nav">
+                            <li class=""><a href="#Fields2" title="Fields">Fields</a></li>
+                            <li><a href="#Methods2" title="Methods">Methods</a></li>
+                        </ul>
+                    </li>
+                    <li class=""><a href="#PreTranslationInfo-class" title="PreTranslationInfo class">PreTranslationInfo class</a><ul class="nav">
+                            <li><a href="#Fields3" title="Fields">Fields</a></li>
+                            <li class=""><a href="#Methods3" title="Methods">Methods</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div><div class="toc-menu"><a class="expand-toggle" href="#">Expand all</a><a class="back-to-top" href="#">Back to top</a><a class="go-to-bottom" href="#">Go to bottom</a></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.6.0/gist-embed.min.js" integrity="sha256-KyF2D6xPIJUW5sUDSs93vWyZm+1RzIpKCexxElmxl8g=" crossorigin="anonymous" defer></script>
+<script>
+    var markdown = $(".markdown-body");
+    //smooth all hash trigger scrolling
+    function smoothHashScroll() {
+        var hashElements = $("a[href^='#']").toArray();
+        for (var i = 0; i < hashElements.length; i++) {
+            var element = hashElements[i];
+            var $element = $(element);
+            var hash = element.hash;
+            if (hash) {
+                $element.on('click', function (e) {
+                    // store hash
+                    var hash = this.hash;
+                    if ($(hash).length <= 0) return;
+                    // prevent default anchor click behavior
+                    e.preventDefault();
+                    // animate
+                    $('body, html').stop(true, true).animate({
+                        scrollTop: $(hash).offset().top
+                    }, 100, "linear", function () {
+                        // when done, add hash to url
+                        // (default click behaviour)
+                        window.location.hash = hash;
+                    });
+                });
+            }
+        }
+    }
+
+    smoothHashScroll();
+    var toc = $('.ui-toc');
+    var tocAffix = $('.ui-affix-toc');
+    var tocDropdown = $('.ui-toc-dropdown');
+    //toc
+    tocDropdown.click(function (e) {
+        e.stopPropagation();
+    });
+
+    var enoughForAffixToc = true;
+
+    function generateScrollspy() {
+        $(document.body).scrollspy({
+            target: ''
+        });
+        $(document.body).scrollspy('refresh');
+        if (enoughForAffixToc) {
+            toc.hide();
+            tocAffix.show();
+        } else {
+            tocAffix.hide();
+            toc.show();
+        }
+        $(document.body).scroll();
+    }
+
+    function windowResize() {
+        //toc right
+        var paddingRight = parseFloat(markdown.css('padding-right'));
+        var right = ($(window).width() - (markdown.offset().left + markdown.outerWidth() - paddingRight));
+        toc.css('right', right + 'px');
+        //affix toc left
+        var newbool;
+        var rightMargin = (markdown.parent().outerWidth() - markdown.outerWidth()) / 2;
+        //for ipad or wider device
+        if (rightMargin >= 133) {
+            newbool = true;
+            var affixLeftMargin = (tocAffix.outerWidth() - tocAffix.width()) / 2;
+            var left = markdown.offset().left + markdown.outerWidth() - affixLeftMargin;
+            tocAffix.css('left', left + 'px');
+        } else {
+            newbool = false;
+        }
+        if (newbool != enoughForAffixToc) {
+            enoughForAffixToc = newbool;
+            generateScrollspy();
+        }
+    }
+    $(window).resize(function () {
+        windowResize();
+    });
+    $(document).ready(function () {
+        windowResize();
+        generateScrollspy();
+    });
+
+    //remove hash
+    function removeHash() {
+        window.location.hash = '';
+    }
+
+    var backtotop = $('.back-to-top');
+    var gotobottom = $('.go-to-bottom');
+
+    backtotop.click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (scrollToTop)
+            scrollToTop();
+        removeHash();
+    });
+    gotobottom.click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (scrollToBottom)
+            scrollToBottom();
+        removeHash();
+    });
+
+    var toggle = $('.expand-toggle');
+    var tocExpand = false;
+
+    checkExpandToggle();
+    toggle.click(function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        tocExpand = !tocExpand;
+        checkExpandToggle();
+    })
+
+    function checkExpandToggle () {
+        var toc = $('.ui-toc-dropdown .toc');
+        var toggle = $('.expand-toggle');
+        if (!tocExpand) {
+            toc.removeClass('expand');
+            toggle.text('Expand all');
+        } else {
+            toc.addClass('expand');
+            toggle.text('Collapse all');
+        }
+    }
+
+    function scrollToTop() {
+        $('body, html').stop(true, true).animate({
+            scrollTop: 0
+        }, 100, "linear");
+    }
+
+    function scrollToBottom() {
+        $('body, html').stop(true, true).animate({
+            scrollTop: $(document.body)[0].scrollHeight
+        }, 100, "linear");
+    }
+</script>
+</body>
+
+</html>
