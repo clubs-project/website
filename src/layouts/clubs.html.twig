@@ -144,6 +144,19 @@
                     Publicaciones
                 {% endif %}
             </a>
+            <a class="nav-item nav-link mr-md-3 {% if page.content_id == 'workshop' %} active{% endif %}"
+                    {% if lang == 'en' %}
+                        href="{{page.url[0:3]}}/workshop/"
+                    {% elseif lang == 'de' %}
+                        href="{{page.url[0:3]}}/workshop/"
+                    {% elseif lang == 'fr' %}
+                        href="{{page.url[0:3]}}/workshop/"
+                    {% elseif lang == 'es' %}
+                        href="{{page.url[0:3]}}/workshop/"
+                    {% endif %}
+            >
+                Final workshop
+            </a>
             <a class="nav-item nav-link mr-md-3 {% if page.content_id == 'team' %} active{% endif %}"
                     {% if lang == 'en' %}
                         href="{{page.url[0:3]}}/team/"
