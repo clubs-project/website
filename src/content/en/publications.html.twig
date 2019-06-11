@@ -21,17 +21,32 @@ title: "Publications"
 </div>
 
 <div class="d-flex flex-column">
-    <h2 class="my-3 align-self-center align-self-md-start">Journal articles</h2>
+    <h2 class="my-3 align-self-center align-self-md-start">Peer reviewed</h2>
     <div class="card-deck d-flex flex-wrap justify-content-center justify-content-md-start">
-        <div class="card mb-md-3 mb-3">
-            <div class="card-header"><h4 class="card-title"><a href="http://link.springer.com/article/10.1007/s13222-016-0244-3">PubPsych: A Powerful Research Tool Providing Access to a Broad Supranational Body of Psychological Knowledge</a></h4>
-                <h6 class="card-subtitle mb-2 text-muted">Erich Weichselgartner & Christiane Baier & Roland Ramthun</h6></div>
+        <div class="card mb-md-3 mb-3 w-50">
+            <div class="card-header">
+                <h4 class="card-title">
+                    Query Translation for Cross-lingual Search in the Academic Search Engine PubPsych<br/>
+                    <a href="https://www.psycharchives.org/bitstream/20.500.12034/870/1/query_translation_academic_search_2018.pdf">Preprint,</a>
+                    <a href="https://www.psycharchives.org/bitstream/20.500.12034/735/1/Presentation_JS_RR_MTSR2018.pdf">Presentation</a>
+                </h4>
+                <h6 class="card-subtitle mb-2 text-muted">Cristina España-Bonet, Juliane Stiller, Roland Ramthun, Josef van Genabith & Vivien Petras</h6></div>
             <div class="card-body">
 
-                <p class="card-text">We discuss the motivation for creating the system, design decisions, connected problems and our solutions, especially concerning multilingual information.</p>
+                <p class="card-text"> We describe a lexical resource-based process for query translation
+                    of a domain-specific and multilingual academic search engine in
+                    psychology, PubPsych. PubPsych queries are diverse in language with
+                    a high amount of informational queries and technical terminology. We
+                    present an approach for translating queries into English, German, French,
+                    and Spanish. We build a quadrilingual lexicon with aligned terms in the
+                    four languages using MeSH, Wikipedia and Apertium as our main resources.
+                    Our results show that using the quadlexicon together with some
+                    simple translation rules, we can automatically translate 85% of translatable
+                    tokens in PubPsych queries with mean adequacy over all the
+                    translatable text of 1.4 when measured on a 3-point scale [0,1,2]</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Published: March 2017</small>
+                <small class="text-muted">Published: November 2018</small>
             </div>
         </div>
         <div class="card mb-md-3 mb-3">
@@ -46,10 +61,26 @@ title: "Publications"
         </div>
       </div>
     </div>
+    <div class="card-deck d-flex flex-wrap justify-content-center justify-content-md-start">
+        <div class="card mb-md-3 mb-3">
+            <div class="card-header"><h4 class="card-title"><a href="http://link.springer.com/article/10.1007/s13222-016-0244-3">PubPsych: A Powerful Research Tool Providing Access to a Broad Supranational Body of Psychological Knowledge</a></h4>
+                <h6 class="card-subtitle mb-2 text-muted">Erich Weichselgartner & Christiane Baier & Roland Ramthun</h6></div>
+            <div class="card-body">
+
+                <p class="card-text">We discuss the motivation for creating the system, design decisions, connected problems and our solutions, especially concerning multilingual information.</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Published: March 2017</small>
+            </div>
+        </div>
+        <div class="invisible card">
+            {#dummy card #}
+        </div>
+    </div>
 </div>
 
 <div class="d-flex flex-column">
-    <h2 class="my-3 align-self-center align-self-md-start">Other</h2></div>
+    <h2 class="my-3 align-self-center align-self-md-start">Master's Theses</h2></div>
 <div class="card-deck d-flex flex-wrap justify-content-center justify-content-md-start">
     <div class="card mb-md-3 mb-3">
         <div class="card-header"><h4 class="card-title"><a href="/assets/publications/other/MSc_Thesis_Ruiter.pdf">Online Parallel Data Extraction with Neural Machine Translation</a></h4>
@@ -63,44 +94,38 @@ title: "Publications"
         </div>
     </div>
     <div class="card mb-md-3 mb-3">
-        <div class="card-header"><h4 class="card-title"><a href="../../documentation-online-query-translation">Online integration of the query translation module into PubPsych</a></h4>
-            {#<h6 class="card-subtitle mb-2 text-muted"></h6>#}
-        </div>
+        <div class="card-header"><h4 class="card-title"><a href="/assets/publications/other/MSc_thesis_AdamVarga.pdf">Domain Adaptation for Multilingual Neural Machine Translation
+                </a></h4>
+            <h6 class="card-subtitle mb-2 text-muted">Ádám Csaba Varga</h6></div>
         <div class="card-body">
-            <p class="card-text">This is the documentation of the changes that were made to PubPsych in order to integrate an online query translating module.</p>
+            <p class="card-text">Neural machine translation (NMT) is currently considered the state-of-the-art for language pairs with vast amounts of parallel data. In this thesis project, we utilize such systems to provide translations between four languages in the psychology domain, where the biggest challenge is posed by in-domain data scarcity. Therefore, the emphasis of the research is laid on exploring domain adaptation methods in this scenario. We first propose a system for automatically building in-domain adaptation corpora by extracting parallel sentence pairs from comparable articles of Wikipedia. To this end, we use supervised classification and regression methods trained on NMT context vector similarities and complementary textual similarity features. We find that the best method for our purposes is a regression model trained on continuous similarity labels. We rerank the extracted candidates by their similarity feature averages and use the top-N partitions as adaptation corpora. In the second part of the thesis we thoroughly examine multilingual domain adaptation by transfer learning with respect to the adaptation data quality, size, and domain. With clean parallel in-domain adaptation data we achieve significant improvements for most translation directions, including ones with no adaptation data, while the automatically extracted corpora prove beneficial mostly for language pairs with no clean in-domain adaptation set. Particularly in these latter cases, the combination of the two adaptation corpora yields further improvements. We also explore the possibilities of reranking N -best translation lists with in-domain language models and similarity features. We conclude that adapted systems produce candidates that can result in a higher improvement in translation performance than the ones of unadapted models, and that remarkable improvements can be achieved by similarity-based reranking methods.
+            </p>
         </div>
         <div class="card-footer">
-            <small class="text-muted">Published: March 2019</small>
+            <small class="text-muted">Published: August 2017</small>
         </div>
     </div>
 </div>
 <div class="card-deck d-flex flex-wrap justify-content-center justify-content-md-start">
-    <div class="card mb-md-3 mb-3 w-50">
-        <div class="card-header">
-            <h4 class="card-title">
-                Query Translation for Cross-lingual Search in the Academic Search Engine PubPsych<br/>
-                <a href="https://www.psycharchives.org/bitstream/20.500.12034/870/1/query_translation_academic_search_2018.pdf">Preprint,</a>
-                <a href="https://www.psycharchives.org/bitstream/20.500.12034/735/1/Presentation_JS_RR_MTSR2018.pdf">Presentation</a>
-            </h4>
-            <h6 class="card-subtitle mb-2 text-muted">Cristina España-Bonet, Juliane Stiller, Roland Ramthun, Josef van Genabith & Vivien Petras</h6></div>
+    <div class="card mb-md-3 mb-3">
+        <div class="card-header"><h4 class="card-title">Query Log Analysis of Information Search Behaviour in the Psychological Domain: a Case Study of PubPsych</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Jie Yin</h6></div>
         <div class="card-body">
-
-            <p class="card-text"> We describe a lexical resource-based process for query translation
-                of a domain-specific and multilingual academic search engine in
-                psychology, PubPsych. PubPsych queries are diverse in language with
-                a high amount of informational queries and technical terminology. We
-                present an approach for translating queries into English, German, French,
-                and Spanish. We build a quadrilingual lexicon with aligned terms in the
-                four languages using MeSH, Wikipedia and Apertium as our main resources.
-                Our results show that using the quadlexicon together with some
-                simple translation rules, we can automatically translate 85% of translatable
-                tokens in PubPsych queries with mean adequacy over all the
-                translatable text of 1.4 when measured on a 3-point scale [0,1,2]</p>
+            <p class="card-text">This study focused on analysing user search behaviours in the psychological domain, as well as comparing with web search engines, other specialised search engines and former study in the psychological domain. The specific research questions are related to session length and query length, the language of sessions and queries, language switch, query reformulation patterns and query categories, term frequency and term distribution and search failure.
+            </p>
         </div>
         <div class="card-footer">
-            <small class="text-muted">Published: November 2018</small>
+            <small class="text-muted">Published: June 2017</small>
         </div>
     </div>
+    <div class="invisible card">
+        {#dummy card #}
+    </div>
+</div>
+
+<div class="d-flex flex-column">
+    <h2 class="my-3 align-self-center align-self-md-start">Other</h2></div>
+<div class="card-deck d-flex flex-wrap justify-content-center justify-content-md-start">
     <div class="card mb-md-3 mb-3">
         <div class="card-header"><h4 class="card-title"><a href="/assets/publications/other/Espana_vanGenabith_IWSLT17.pdf">Going beyond zero-shot MT: combining phonological, morphological and semantic factors. The UdS-DFKI System at IWSLT 2017</a></h4>
             <h6 class="card-subtitle mb-2 text-muted">Cristina España-Bonet &amp; Josef van Genabith</h6></div>
@@ -110,21 +135,6 @@ title: "Publications"
         </div>
         <div class="card-footer">
             <small class="text-muted">Published: December 2017</small>
-        </div>
-    </div>
-</div>
-
-<div class="card-deck d-flex flex-wrap justify-content-center justify-content-md-start">
-    <div class="card mb-md-3 mb-3">
-        <div class="card-header"><h4 class="card-title"><a href="/assets/publications/other/MSc_thesis_AdamVarga.pdf">Master's thesis: Domain Adaptation for Multilingual Neural Machine Translation
-                </a></h4>
-            <h6 class="card-subtitle mb-2 text-muted">Ádám Csaba Varga</h6></div>
-        <div class="card-body">
-            <p class="card-text">Neural machine translation (NMT) is currently considered the state-of-the-art for language pairs with vast amounts of parallel data. In this thesis project, we utilize such systems to provide translations between four languages in the psychology domain, where the biggest challenge is posed by in-domain data scarcity. Therefore, the emphasis of the research is laid on exploring domain adaptation methods in this scenario. We first propose a system for automatically building in-domain adaptation corpora by extracting parallel sentence pairs from comparable articles of Wikipedia. To this end, we use supervised classification and regression methods trained on NMT context vector similarities and complementary textual similarity features. We find that the best method for our purposes is a regression model trained on continuous similarity labels. We rerank the extracted candidates by their similarity feature averages and use the top-N partitions as adaptation corpora. In the second part of the thesis we thoroughly examine multilingual domain adaptation by transfer learning with respect to the adaptation data quality, size, and domain. With clean parallel in-domain adaptation data we achieve significant improvements for most translation directions, including ones with no adaptation data, while the automatically extracted corpora prove beneficial mostly for language pairs with no clean in-domain adaptation set. Particularly in these latter cases, the combination of the two adaptation corpora yields further improvements. We also explore the possibilities of reranking N -best translation lists with in-domain language models and similarity features. We conclude that adapted systems produce candidates that can result in a higher improvement in translation performance than the ones of unadapted models, and that remarkable improvements can be achieved by similarity-based reranking methods.
-            </p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Published: August 2017</small>
         </div>
     </div>
     <div class="card mb-md-3 mb-3">
@@ -137,22 +147,5 @@ title: "Publications"
         <div class="card-footer">
             <small class="text-muted">Published: August 2017</small>
         </div>
-    </div>
-</div>
-
-<div class="card-deck d-flex flex-wrap justify-content-center justify-content-md-start">
-    <div class="card mb-md-3 mb-3">
-        <div class="card-header"><h4 class="card-title">Master's thesis: Query Log Analysis of Information Search Behaviour in the Psychological Domain: a Case Study of PubPsych</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Jie Yin</h6></div>
-        <div class="card-body">
-            <p class="card-text">This study focused on analysing user search behaviours in the psychological domain, as well as comparing with web search engines, other specialised search engines and former study in the psychological domain. The specific research questions are related to session length and query length, the language of sessions and queries, language switch, query reformulation patterns and query categories, term frequency and term distribution and search failure.
-            </p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">Published: June 2017</small>
-        </div>
-    </div>
-    <div class="invisible card">
-        {#dummy card #}
     </div>
 </div>
